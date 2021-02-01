@@ -19,6 +19,8 @@ Auth::routes();
 |--------------------------------------------------------------------------
 */
 Route::get('/', function () { return redirect('/home'); });
+Route::get('/article/{id}','ArticleController@show_index');
+Route::get('/article/show/{id2}','ArticleController@show');
  
 /*
 |--------------------------------------------------------------------------
@@ -48,4 +50,7 @@ Route::group(['prefix' => 'admin'], function() {
 Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
     Route::post('logout',   'Admin\LoginController@logout')->name('admin.logout');
     Route::get('home',      'Admin\HomeController@index')->name('admin.home');
+    Route::get('make','Admin\HomeController@create');
+    
 });
+Route::post('make','ArticleController@store');
