@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Article;
+
 
 class HomeController extends Controller
 {
@@ -27,6 +29,8 @@ class HomeController extends Controller
         return view('admin.index');
     }
     public function create(){
-        return view('admin.make');
+        $message =new Article;
+    
+        return view('admin.make',['message'=>$message]);
     }
 }

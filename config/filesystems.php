@@ -57,11 +57,12 @@ return [
 
         's3' => [
             'driver' => 's3',
-            'key' => env('AWS_ACCESS_KEY_ID'),
-            'secret' => env('AWS_SECRET_ACCESS_KEY'),
-            'region' => env('AWS_DEFAULT_REGION'),
-            'bucket' => env('AWS_BUCKET'),
+            'key' =>env('AWS_ACCESS_KEY_ID'), // .envのAWS_ACCESS_KEY_IDの値を参照
+            'secret' => env('AWS_SECRET_ACCESS_KEY'), // .envのAWS_SECRET_ACCESS_KEYの値を参照
+            'region' => env('AWS_DEFAULT_REGION'), // .envのAWS_DEFAULT_REGIONの値を参照
+            'bucket' => env('AWS_BUCKET'), // .envのAWS_BUCKETの値を参照
         ],
+
 
     ],
 

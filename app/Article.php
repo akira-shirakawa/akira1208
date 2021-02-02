@@ -27,4 +27,8 @@ public function group_by( $table, $key)
     }
     return $groups;
 }
+public function dir($dir){
+    preg_match('/\d*$/',$dir,$match);
+    return $match[0];
+}
 }

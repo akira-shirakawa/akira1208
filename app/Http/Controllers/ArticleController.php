@@ -50,7 +50,7 @@ class ArticleController extends Controller
     public function show($id)
     {
      $message = Article::find($id);
-     return view('show_article',['message'=>$message]);
+     return view('show_article',['message'=>$message,]);
      
      
     }

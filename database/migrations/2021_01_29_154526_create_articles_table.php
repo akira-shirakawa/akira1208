@@ -21,6 +21,7 @@ class CreateArticlesTable extends Migration
             $table->string('category');
             $table->integer('homework_flag');
             $table->integer('subject');
+            $table->text('homework')->nullable();
             $table->timestamps();
              
         });

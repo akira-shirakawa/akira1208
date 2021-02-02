@@ -60,26 +60,12 @@
                   </select>
                 </div>
                 <textarea id="inputform" class="input-area textarea" name="content" type="textarea" required>
-                    <div class="summary">
-               ajiji
-           </div>
-           <div class="homework is-primary">
-               <div class="title">課題</div>
-              <div class="file">
-                <label class="file-label">
-                  <input class="file-input" type="file" name="resume" onchange="previewImage(this);">
-                  <span class="file-cta">
-                    <span class="file-icon">
-                      <i class="fas fa-upload"></i>
-                    </span>
-                    <span class="file-label">
-                      ここから写真を送る
-                    </span>
-                  </span>
-                </label>
-              </div>
-           </div>
+
                 </textarea>
+                <textarea id="inputform" class="input-area textarea" name="homework" type="textarea" required>
+
+                </textarea>
+                
                 <div class="control">
                     <label class="radio">
                       <input type="radio" name="homework_flag" value="1">
@@ -91,8 +77,7 @@
                     </label>
                   </div>
                   <input type="submit" class="button is-link">
-                  <a href="#">#</a>
-                  <input type="hidden" value="{{ Auth::id() }}" name="admin_id">
+                    <input type="hidden" value="{{ Auth::id() }}" name="admin_id">
             </form>
         </div>
         <div class="column is-half ">

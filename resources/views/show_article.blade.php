@@ -11,6 +11,32 @@
         <div class="column is-half is-offset-one-quarter has-background-white">
             <h2 class="title">{{$message->title}}</h2>
            {!! nl2br(($message->content)) !!}
+              <div class="homework">
+               <div class="title">課題</div>
+               {{$message->homework}}
+               <form action="../../homework" method="post" enctype="multipart/form-data">
+                                    {{csrf_field()}}
+                      <input type="hidden" name="article_id" value="{{$message->id}}">
+                     
+                        <input type="hidden" value="{{ Auth::id() }}" name="user_id">
+
+              <div class="file is-primary">
+                <label class="file-label">
+                  <input class="file-input" type="file" name="image" onchange="previewImage(this);">
+                  <span class="file-cta">
+                    <span class="file-icon">
+                      <i class="fas fa-upload"></i>
+                    </span>
+                    <span class="file-label">
+                      ここから写真を送る
+                    </span>
+                  </span>
+                </label>
+              </div>
+                     <input type="submit" class="button is-link">
+
+              </form>
+           </div>
            <img id="preview" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="max-width:200px;">
         </div>
       

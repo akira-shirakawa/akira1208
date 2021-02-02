@@ -29,6 +29,7 @@ Route::get('/article/show/{id2}','ArticleController@show');
 */
 Route::group(['middleware' => 'auth:user'], function() {
     Route::get('/home', 'HomeController@index')->name('home');
+    Route::post('/homework','HomeworkController@store');
 });
  
 /*
