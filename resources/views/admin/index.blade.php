@@ -14,7 +14,8 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    <a href="homework">homework</a>
+                    
                 </div>
             </div>
         </div>

@@ -6,12 +6,14 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+
 </head>
 <body>
     <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
           <a class="navbar-item" href="https://bulma.io">
-            <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+            akiraLerning
           </a>
       
           <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -27,8 +29,8 @@
               Home
             </a>
       
-            <a class="navbar-item">
-              Documentation
+            <a class="navbar-item" href="homework/{{Auth::id()}}">
+              課題
             </a>
       
             <div class="navbar-item has-dropdown is-hoverable">
@@ -57,12 +59,22 @@
           <div class="navbar-end">
             <div class="navbar-item">
               <div class="buttons">
-                <a class="button is-primary">
+             @guest
+                <a class="button is-primary" href="{{ route('login') }}">
                   <strong>Sign up</strong>
                 </a>
-                <a class="button is-light">
-                  Log in
+              @endguest
+             @auth
+                <a class="button is-primary" href="{{ route('logout') }}"
+ 
+                    onclick="event.preventDefault();
+                             document.getElementById('logout-form').submit();">
+                    Logout
                 </a>
+              @endauth 
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    {{ csrf_field() }}
+                </form>
               </div>
             </div>
           </div>
@@ -112,7 +124,7 @@
                 </a>
                 <a class="panel-block">
                   <span class="panel-icon">
-                    <i class="fas fa-book" aria-hidden="true"></i>
+                    <i class="fas fa-globe-asia"></i>
                   </span>
                   地理
                 </a>
@@ -125,31 +137,32 @@
               </article>
             <article class="panel is-primary">
                 <p class="panel-heading">
-                 学習
+                 学習 <i class="fas fa-book" aria-hidden="true"></i>
                 </p>
                 
                
                 <a href="article/0"class="panel-block is-active">
                   <span class="panel-icon">
-                    <i class="fas fa-book" aria-hidden="true"></i>
+                   <i class="fas fa-calculator"></i>
                   </span>
                   数学
                 </a>
-                <a class="panel-block">
+                <a class="panel-block" href="article/1">
+
                   <span class="panel-icon">
-                    <i class="fas fa-book" aria-hidden="true"></i>
+                    <i class="fas fa-font"></i>
                   </span>
                   英語
                 </a>
-                <a class="panel-block">
+                <a class="panel-block" href="article/2">
                   <span class="panel-icon">
-                    <i class="fas fa-book" aria-hidden="true"></i>
+                   <i class="fas fa-flask"></i>
                   </span>
                   理科
                 </a>
                 <a class="panel-block">
                   <span class="panel-icon">
-                    <i class="fas fa-book" aria-hidden="true"></i>
+                   <i class="fas fa-globe-asia"></i>
                   </span>
                   地理
                 </a>
@@ -162,7 +175,12 @@
                   <button class="delete" aria-label="delete"></button>
                 </div>
                 <div class="message-body">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>, in mollis lectus. Donec sodales, arcu et sollicitudin porttitor, tortor urna tempor ligula, id porttitor mi magna a neque. Donec dui urna, vehicula et sem eget, facilisis sodales sem.
+                <div class="block">
+                <span class="icon has-text-success">
+                  <i class="fab fa-line"></i>
+                </span>                  
+                line at で相談しませんか？
+                </div>                 
                 </div>
               </article>
               <article class="message">
@@ -171,6 +189,7 @@
                   <button class="delete" aria-label="delete"></button>
                 </div>
                 <div class="message-body">
+               <i class="fas fa-book" aria-hidden="true"></i>              
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>, in mollis lectus. Donec sodales, arcu et sollicitudin porttitor, tortor urna tempor ligula, id porttitor mi magna a neque. Donec dui urna, vehicula et sem eget, facilisis sodales sem.
                 </div>
               </article>
@@ -186,5 +205,10 @@
         </div>
       </footer>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<style>
+i{
+  font-size:1.5rem;
+}
+</style>
 </body>
 </html>

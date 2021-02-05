@@ -13,12 +13,15 @@ class Article extends Model
         'content',
         'category',
         'homework_flag',
+        'homework',
         'subject',
         'created_at'
     ];
     
     
-
+public function user_id(){
+    return $this->hasmany('App\Homework');
+}
 public function group_by( $table, $key)
 {
     $groups = [];
@@ -27,8 +30,5 @@ public function group_by( $table, $key)
     }
     return $groups;
 }
-public function dir($dir){
-    preg_match('/\d*$/',$dir,$match);
-    return $match[0];
-}
+
 }

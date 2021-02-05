@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Article;
+use App\Homework;
 
 
 class HomeController extends Controller
@@ -32,5 +33,8 @@ class HomeController extends Controller
         $message =new Article;
     
         return view('admin.make',['message'=>$message]);
+    }
+    public function homework_index(){
+        
     }
 }

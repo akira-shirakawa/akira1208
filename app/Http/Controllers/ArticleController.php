@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Article;
-
+use App\Reply;
+use App\Homework;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
@@ -50,9 +51,27 @@ class ArticleController extends Controller
     public function show($id)
     {
      $message = Article::find($id);
-     return view('show_article',['message'=>$message,]);
+     $message2 = new ArticleController;
+     return view('show_article',['message'=>$message,'message2'=>$message2]);
      
-     
+    }
+    public function distinct_homework($user_id,$article_id){
+         $message = Reply::where('user_id',$user_id)->where('article_id',$article_id)->get()->first();
+         $message2 = Homework::where('user_id',$user_id)->where('article_id',$article_id)->get()->first();
+        
+      if(empty($message2) ){
+          return '未提出';
+      }
+     if(empty($message) || $message->statue == 5){
+         return '提出済み';
+     }
+      
+   if($message->statue == 2){
+       return '再提出';
+   }else{
+       return '合格';
+   }
+         
     }
     public function show_index($id){
        
