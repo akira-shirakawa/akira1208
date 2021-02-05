@@ -21,6 +21,9 @@ Auth::routes();
 Route::get('/','HomeController@index');
 Route::get('/article/{id}','ArticleController@show_index');
 Route::get('/article/show/{id2}','ArticleController@show');
+Route::get('/user/{id}','HomeController@show');
+Route::post('/memo','PostController@store');
+
  
 /*
 |--------------------------------------------------------------------------

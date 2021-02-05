@@ -37,7 +37,12 @@ class ReplyController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {   if($request->statue == 1){
+        
+        $user = User::find($request->user_id);
+        $user->point+=10;
+        $user->save();
+    }
         $message =$request->all();
         Reply::create($message);
         return back();

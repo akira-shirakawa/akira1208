@@ -12,8 +12,8 @@
 <body>
     <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
-          <a class="navbar-item" href="https://bulma.io">
-            akiraLerning
+          <a class="navbar-item" href="user/{{Auth::id()}}">
+            {{Auth::user()->name}}
           </a>
       
           <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -25,9 +25,9 @@
       
         <div id="navbarBasicExample" class="navbar-menu">
           <div class="navbar-start">
-            <a class="navbar-item">
-              Home
-            </a>
+            <figure class="image is-48x48">
+              <img src="{{Auth::user()->image}}">
+            </figure>
       
             <a class="navbar-item" href="homework/{{Auth::id()}}">
               課題
@@ -58,7 +58,9 @@
       
           <div class="navbar-end">
             <div class="navbar-item">
+             
               <div class="buttons">
+                
              @guest
                 <a class="button is-primary" href="{{ route('login') }}">
                   <strong>Sign up</strong>
@@ -167,6 +169,22 @@
                   地理
                 </a>
               </article>
+             <article class="message is-primary">
+              <div class="message-header">
+
+                ランキング
+              </div>
+              <div class="message-body">
+              <div class="tabs is-centered">
+                <ul>
+                  <li class="is-active"><a>Dayly</a></li>
+                 
+                  <li>月間</li>
+                  <li>総合</li>
+                  
+                </ul>
+              </div>              </div>
+            </article>             
         </div>
         <div class="column">
             <article class="message">
@@ -180,6 +198,7 @@
                   <i class="fab fa-line"></i>
                 </span>                  
                 line at で相談しませんか？
+                <h2 class="subtitle js-target">Subtitle</h2>                
                 </div>                 
                 </div>
               </article>
@@ -205,6 +224,28 @@
         </div>
       </footer>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+    function return_time(number){
+        date = Math.floor(number/(60*60*24));
+        hour = Math.floor((number-(date*60*60*24))/(60*60));
+        minute = Math.floor((number-(date*60*60*24)-(hour*60*60))/60);
+        second = Math.floor(number % 60);
+        return String(date)+'日'+String(hour)+'時間'+String(minute)+'分'+String(second)+'秒'; 
+    }
+    function countdown(){
+        var date = new Date() ;
+        var a = date.getTime() ;
+        var b = Math.floor( a / 1000 ) ;
+        var date2 = new Date( 2022, 1, 16, 0, 00, 00 ) ;
+        var c = date2.getTime() ;
+        var d = Math.floor( c / 1000 ) ;
+        let result = d-b;
+        let result2 =return_time(result);
+        $('.js-target').text(result2);
+        setTimeout(countdown,1000);
+    }
+    countdown();
+</script>
 <style>
 i{
   font-size:1.5rem;

@@ -2,13 +2,31 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
     <title>Document</title>
 </head>
 <body >
-    <div class="columns is-desktop ">
-        <div class="column is-half is-offset-one-quarter has-background-white">
+    <div class="columns">
+       <div class="column">
+<article class="message is-dark">
+  <div class="message-header">
+    <p>Memo</p>
+  </div>
+  <div class="message-body">
+    <textarea class="textarea" placeholder="10 lines of textarea" rows="10" name='memo'>{{$message3->memo ?? null}}</textarea>   
+    <button class="button is-black js-target">保存</button>
+    <button class="button is-loading is-black js-target2 hide">保存</button>
+    
+  </div>
+</article>         
+     
+       </div>
+        <div class="column is-half has-background-white">
+ <div class="notification is-success hide js-target4">
+正常に保存されました
+</div>         
             <h2 class="title">{{$message->title}}</h2>
            {!! nl2br(($message->content)) !!}
               <div class="homework">
@@ -78,10 +96,43 @@
            </div>
            <img id="preview" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="max-width:200px;">
         </div>
+        <div class="column">
+         
+       </div>       
       
       </div>  
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script>
-        
+        function show_alert(){
+          $('.js-target4').toggleClass('hide');
+          setTimeout(function(){
+               $('.js-target4').toggleClass('hide');
+          },2000);          
+        };
+        $('.js-target').click(function(){
+         $(this).toggleClass('hide');
+         $('.js-target2').toggleClass('hide');
+        let memo = $('textarea[name="memo"]').val();
+              $.ajax({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    url: "../../memo",
+                    type: 'POST',
+                    data:{'user_id':{{Auth::id()}},'article_id':{{$message->id}},'memo':memo}
+                })
+                .done(function(data) {
+                   $('.js-target').toggleClass('hide');
+                   $('.js-target2').toggleClass('hide');
+                  show_alert();
+                 
+                })
+                
+                .fail(function(data) {
+                    alert('失敗');
+                });  
+        });
+     
         function previewImage(obj)
         {
         	var fileReader = new FileReader();
@@ -115,6 +166,9 @@
           background:black;
           opacity:0.5;
           z-index:3;
+          }
+          .hide{
+          display:none;
           }
       </style>
 </body>

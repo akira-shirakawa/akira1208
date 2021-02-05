@@ -6,6 +6,8 @@ use App\Article;
 use App\Reply;
 use App\Homework;
 use Illuminate\Http\Request;
+use App\Post;
+use Auth;
 
 class ArticleController extends Controller
 {
@@ -52,7 +54,8 @@ class ArticleController extends Controller
     {
      $message = Article::find($id);
      $message2 = new ArticleController;
-     return view('show_article',['message'=>$message,'message2'=>$message2]);
+     $message3 =  Post::where('user_id',Auth::id())->where('article_id',$id)->get()->first();
+     return view('show_article',['message'=>$message,'message2'=>$message2,'message3'=>$message3]);
      
     }
     public function distinct_homework($user_id,$article_id){
