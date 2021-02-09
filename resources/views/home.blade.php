@@ -12,9 +12,11 @@
 <body>
     <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
+          @auth
           <a class="navbar-item" href="user/{{Auth::id()}}">
             {{Auth::user()->name}}
           </a>
+          @endauth
       
           <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
             <span aria-hidden="true"></span>
@@ -25,9 +27,11 @@
       
         <div id="navbarBasicExample" class="navbar-menu">
           <div class="navbar-start">
+            @auth
             <figure class="image is-48x48">
               <img src="{{Auth::user()->image}}">
             </figure>
+            @endauth
       
             <a class="navbar-item" href="homework/{{Auth::id()}}">
               課題
@@ -82,8 +86,20 @@
           </div>
         </div>
       </nav>
+       <section class="hero is-medium mb-1" style="background:url(https://akira32310901.s3.amazonaws.com/%E3%83%81%E3%83%A7%E3%82%B310.12.jpg) center">
+         
+        <div class="hero-body">
+          <p class="title has-text-white-ter">
+            聖ラーニング
+          </p>
+          <p class="subtitle has-text-white-ter ">
+             Akira lerning
+          </p>
+        </div>
+      </section>     
       <div class="columns">
         <div class="column ">
+          @auth
             <article class="message is-link">
                 <div class="message-header">
                   <p>Link</p>
@@ -93,26 +109,19 @@
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>, in mollis lectus. Donec sodales, arcu et sollicitudin porttitor, tortor urna tempor ligula, id porttitor mi magna a neque. Donec dui urna, vehicula et sem eget, facilisis sodales sem.
                 </div>
               </article>
+              @endauth
               
-            <article class="message is-info">
-                <div class="message-header">
-                <p>Info</p>
-                <button class="delete" aria-label="delete"></button>
-                </div>
-                <div class="message-body">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>, in mollis lectus. Donec sodales, arcu et sollicitudin porttitor, tortor urna tempor ligula, id porttitor mi magna a neque. Donec dui urna, vehicula et sem eget, facilisis sodales sem.
-                </div>
-            </article>
+
   
         </div>
         <div class="column is-half">
-            <article class="panel is-primary">
+            <article class="panel is-primary pt-3">
                 <p class="panel-heading">
                   高速基礎マスター
                 </p>
                 
                
-                <a class="panel-block is-active">
+                <a class="panel-block is-active" href="question/1">
                   <span class="panel-icon">
                     <i class="fas fa-book" aria-hidden="true"></i>
                   </span>
@@ -169,22 +178,44 @@
                   地理
                 </a>
               </article>
-             <article class="message is-primary">
-              <div class="message-header">
+      <div class="title is-4">
+        ランキング
+      </div>
+<ul class="tab clearfix">
+  <li class="active">総合</li>
+  <li>dayly</li>
+  <li>month</li>
+</ul>
+<div class="card">
+  <div class="card-content">
+    <div class="content">
+<div class="area">
+  <ul class="show">
+    <table class="table">
+    @foreach($message as $key)
+   <tr><td><figure class="image is-32x32">
+  <img class="is-rounded" src="{{$key->image ?? "https://bulma.io/images/placeholders/128x128.png"}}">
+</figure></td><td>{{$key->name}} </td><td> {{$key->point}}Point</td></tr>
+   @endforeach
+   </table>
+  </ul>
+  <ul>
+  @foreach($day as $key)
+   <li>{{$user->get_user($key['user_id'])->name}} {{$key['point']}}point</li> 
+   @endforeach
+  </ul>
+  <ul>
+    @foreach($month as $key)
+   <li>{{$key['point']}}point</li>
+   @endforeach
+  </ul>
+</div>   
+    </div>
+  </div>
+</div>
 
-                ランキング
-              </div>
-              <div class="message-body">
-              <div class="tabs is-centered">
-                <ul>
-                  <li class="is-active"><a>Dayly</a></li>
-                 
-                  <li>月間</li>
-                  <li>総合</li>
-                  
-                </ul>
-              </div>              </div>
-            </article>             
+
+
         </div>
         <div class="column">
             <article class="message">
@@ -204,13 +235,33 @@
               </article>
               <article class="message">
                 <div class="message-header">
-                  <p>Hello World</p>
+                  <p>注目</p>
                   <button class="delete" aria-label="delete"></button>
                 </div>
                 <div class="message-body">
-               <i class="fas fa-book" aria-hidden="true"></i>              
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>, in mollis lectus. Donec sodales, arcu et sollicitudin porttitor, tortor urna tempor ligula, id porttitor mi magna a neque. Donec dui urna, vehicula et sem eget, facilisis sodales sem.
-                </div>
+@foreach($notification as $key) 
+<a href="{{$key->link}}">
+<div class="box">
+  <article class="media">
+    <div class="media-left">
+      <figure class="image is-64x64">
+        <img src="{{$key->image ?: "https://bulma.io/images/placeholders/128x128.png"}}" alt="Image">
+      </figure>
+    </div>
+    <div class="media-content">
+      <div class="content">
+        <p>
+         
+         {{$key->content}}<br>外部リンク 
+        </p>
+      </div>
+     
+    </div>
+  </article>
+</div>  
+</a>
+@endforeach
+</div>
               </article>
         </div>
       </div>
@@ -223,6 +274,44 @@
           </p>
         </div>
       </footer>
+  <style>
+    .columns{
+      padding-top:15px;
+    }
+.tab {
+  border-bottom: 3px solid #fb4343;
+  display:flex;
+}
+.tab li {
+  color: #333;
+  display:block;
+  width:20%;
+  margin: 0 10px -1px 0;
+  padding: 10px 20px;
+  border: 1px solid #fb4343;
+  cursor: pointer;
+  list-style: none;
+  transition: .3s;
+}
+.tab li.active {
+  color: #fff;
+  background: #fb4343;
+  cursor: auto;
+}
+ 
+.area ul {
+  display: none;
+}
+.area ul.show {
+  display: block;
+}
+ul>li{
+list-style:none;
+}
+a {
+text-decoration: none;
+} 
+  </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
     function return_time(number){
@@ -245,8 +334,27 @@
         setTimeout(countdown,1000);
     }
     countdown();
+  $('.tab li').click(function() {
+ 
+    // ②クリックされたタブの順番を変数に格納
+    var index = $('.tab li').index(this);
+ 
+    // ③クリック済みタブのデザインを設定したcssのクラスを一旦削除
+    $('.tab li').removeClass('active');
+ 
+    // ④クリックされたタブにクリック済みデザインを適用する
+    $(this).addClass('active');
+ 
+    // ⑤コンテンツを一旦非表示にし、クリックされた順番のコンテンツのみを表示
+    $('.area ul').removeClass('show').eq(index).addClass('show');
+ 
+  });
+  
 </script>
 <style>
+html{
+  text-align:center;
+}
 i{
   font-size:1.5rem;
 }

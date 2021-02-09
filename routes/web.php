@@ -18,9 +18,11 @@ Auth::routes();
 | 1) User 認証不要
 |--------------------------------------------------------------------------
 */
-Route::get('/','HomeController@index');
+Route::get('/','LogController@index');
 Route::get('/article/{id}','ArticleController@show_index');
 Route::get('/article/show/{id2}','ArticleController@show');
+Route::get('/question/{id}','QuestionController@show_index');
+Route::get('/question/show/{id2}','QuestionController@show');
 Route::get('/user/{id}','HomeController@show');
 Route::post('/memo','PostController@store');
 
@@ -31,7 +33,7 @@ Route::post('/memo','PostController@store');
 |--------------------------------------------------------------------------
 */
 Route::group(['middleware' => 'auth:user'], function() {
-    Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/home', 'LogController@index')->name('home');
     Route::post('/homework','HomeworkController@store');
     Route::post('/homework_edit','HomeworkController@edit');
     Route::get('/homework/{id}','ReplyController@show');
@@ -58,11 +60,16 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
     Route::get('home',      'Admin\HomeController@index')->name('admin.home');
     Route::get('make','Admin\HomeController@create');
     Route::get('homework','HomeworkController@index');
+    Route::get('question','QuestionController@create');
     
     
 });
+Route::post('csv','QuestionController@store_csv');
 Route::post('make','ArticleController@store');
 Route::post('reply','ReplyController@store');
 Route::post('reply_edit','ReplyController@edit');
+Route::post('log','LogController@store');
+Route::post('notification','NotificationController@store');
+
 
 

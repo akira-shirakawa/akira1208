@@ -14,7 +14,12 @@
   <div class="message-header">
     <p>Memo</p>
   </div>
-  <div class="message-body">
+  <div class="message-body js-memo">
+    @guest
+    <div class="wrapper2">
+      ログインしてメモを書いてみよう
+    </div>
+    @endguest
     <textarea class="textarea" placeholder="10 lines of textarea" rows="10" name='memo'>{{$message3->memo ?? null}}</textarea>   
     <button class="button is-black js-target">保存</button>
     <button class="button is-loading is-black js-target2 hide">保存</button>
@@ -150,14 +155,29 @@
               border:tomato 2px solid;
               border-radius:3px;
           }
-          .homework{
+          .homework,.js-memo{
              
               background:rgb(222, 245, 255);
               position:relative;
           }
           
+          
+          
           .wrapper{
           text-align:center;
+          color:#fff;
+          font-size:2rem;
+          position:absolute;
+          width:100%;
+          height:100%;
+          background:black;
+          opacity:0.5;
+          z-index:3;
+          }
+          .wrapper2{
+          text-align:center;
+          top:0;
+          left:0;
           color:#fff;
           font-size:2rem;
           position:absolute;
