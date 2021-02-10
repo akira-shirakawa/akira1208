@@ -7,6 +7,34 @@
     <title>Document</title>
 </head>
 <body>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          @auth
+          <a class="navbar-item" href="user/{{Auth::id()}}">
+          <figure class="image is-32x32">
+          <img class="is-rounded" src="{{Auth::user()->image ?? "https://bulma.io/images/placeholders/128x128.png"}}">
+        </figure>
+        </a>
+             <a class="navbar-item" href="homework/{{Auth::id()}}">
+              課題
+            </a> 
+                <a class="button is-primary" href="{{ route('logout') }}"
+ 
+                    onclick="event.preventDefault();
+                             document.getElementById('logout-form').submit();">
+                    Logout
+                </a>            
+          @endauth
+             @guest
+                <a class="button is-primary" href="{{ route('login') }}">
+                  <strong>Login</strong>
+                </a>
+              @endguest         
+                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    {{ csrf_field() }}
+                </form>     
+        </div>
+      </nav>    
     <div class="columns">
         <div class="column">
             
@@ -14,7 +42,7 @@
         <div class="column is-half">
             <article class="panel is-link">
                 <p class="panel-heading">
-                  数学
+                  英語
                 </p>
                 @auth
                 @foreach ($message as $key=>$message)

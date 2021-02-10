@@ -8,8 +8,39 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="columns is-mobile">
-        <div class="column is-half is-offset-one-quarter main">
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          @auth
+          <a class="navbar-item" href="user/{{Auth::id()}}">
+          <figure class="image is-32x32">
+          <img class="is-rounded" src="{{Auth::user()->image ?? "https://bulma.io/images/placeholders/128x128.png"}}">
+        </figure>
+        </a>
+             <a class="navbar-item" href="homework/{{Auth::id()}}">
+              課題
+            </a> 
+                <a class="button is-primary" href="{{ route('logout') }}"
+ 
+                    onclick="event.preventDefault();
+                             document.getElementById('logout-form').submit();">
+                    Logout
+                </a>            
+          @endauth
+             @guest
+                <a class="button is-primary" href="{{ route('login') }}">
+                  <strong>Login</strong>
+                </a>
+              @endguest         
+                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    {{ csrf_field() }}
+                </form>     
+        </div>
+      </nav>    
+    <div class="columns ">
+        <div class="column">
+            
+        </div>
+        <div class="column is-half">
             <table class="tableis-striped is-fullwidth table">
                
                 <tr>
@@ -53,7 +84,12 @@
                @endforeach
             </table>
         </div>
+        <div class="column">
+            
+        </div>
+        
       </div>
+      
       <style>
           html{
               background:#eee;

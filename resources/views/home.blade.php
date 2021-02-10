@@ -14,76 +14,28 @@
         <div class="navbar-brand">
           @auth
           <a class="navbar-item" href="user/{{Auth::id()}}">
-            {{Auth::user()->name}}
-          </a>
-          @endauth
-      
-          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-          </a>
-        </div>
-      
-        <div id="navbarBasicExample" class="navbar-menu">
-          <div class="navbar-start">
-            @auth
-            <figure class="image is-48x48">
-              <img src="{{Auth::user()->image}}">
-            </figure>
-            @endauth
-      
-            <a class="navbar-item" href="homework/{{Auth::id()}}">
+          <figure class="image is-32x32">
+          <img class="is-rounded" src="{{Auth::user()->image ?? "https://bulma.io/images/placeholders/128x128.png"}}">
+        </figure>
+        </a>
+             <a class="navbar-item" href="homework/{{Auth::id()}}">
               課題
-            </a>
-      
-            <div class="navbar-item has-dropdown is-hoverable">
-              <a class="navbar-link">
-                More
-              </a>
-      
-              <div class="navbar-dropdown">
-                <a class="navbar-item">
-                  About
-                </a>
-                <a class="navbar-item">
-                  Jobs
-                </a>
-                <a class="navbar-item">
-                  Contact
-                </a>
-                <hr class="navbar-divider">
-                <a class="navbar-item">
-                  Report an issue
-                </a>
-              </div>
-            </div>
-          </div>
-      
-          <div class="navbar-end">
-            <div class="navbar-item">
-             
-              <div class="buttons">
-                
-             @guest
-                <a class="button is-primary" href="{{ route('login') }}">
-                  <strong>Sign up</strong>
-                </a>
-              @endguest
-             @auth
+            </a> 
                 <a class="button is-primary" href="{{ route('logout') }}"
  
                     onclick="event.preventDefault();
                              document.getElementById('logout-form').submit();">
                     Logout
+                </a>            
+          @endauth
+             @guest
+                <a class="button is-primary" href="{{ route('login') }}">
+                  <strong>Login</strong>
                 </a>
-              @endauth 
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+              @endguest         
+                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     {{ csrf_field() }}
-                </form>
-              </div>
-            </div>
-          </div>
+                </form>     
         </div>
       </nav>
        <section class="hero is-medium mb-1" style="background:url(https://akira32310901.s3.amazonaws.com/%E3%83%81%E3%83%A7%E3%82%B310.12.jpg) center">
@@ -102,7 +54,7 @@
           @auth
             <article class="message is-link">
                 <div class="message-header">
-                  <p>Link</p>
+                  <p>Notification</p>
                   <button class="delete" aria-label="delete"></button>
                 </div>
                 <div class="message-body">
@@ -125,25 +77,25 @@
                   <span class="panel-icon">
                     <i class="fas fa-book" aria-hidden="true"></i>
                   </span>
-                  数学
+                  英語<span class="tag is-danger">New</span>
                 </a>
                 <a class="panel-block">
                   <span class="panel-icon">
                     <i class="fas fa-book" aria-hidden="true"></i>
                   </span>
-                  英語
+                  数学 Comming soon
                 </a>
                 <a class="panel-block">
                   <span class="panel-icon">
                     <i class="fas fa-globe-asia"></i>
                   </span>
-                  地理
+                  地理 Comming Soon
                 </a>
                 <a class="panel-block">
                   <span class="panel-icon">
                     <i class="fas fa-book" aria-hidden="true"></i>
                   </span>
-                  理科
+                  理科 Comming soon
                 </a>
               </article>
             <article class="panel is-primary">
@@ -201,7 +153,9 @@
   </ul>
   <ul>
   @foreach($day as $key)
-   <li>{{$user->get_user($key['user_id'])->name}} {{$key['point']}}point</li> 
+   <li><figure class="image is-32x32">
+  <img class="is-rounded" src="{{$user->get_user($key['user_id'])->image  ?? "https://bulma.io/images/placeholders/128x128.png"}}">
+</figure>{{$user->get_user($key['user_id'])->name}} {{$key['point']}}point</li> 
    @endforeach
   </ul>
   <ul>
@@ -221,7 +175,6 @@
             <article class="message">
                 <div class="message-header">
                   <p>News</p>
-                  <button class="delete" aria-label="delete"></button>
                 </div>
                 <div class="message-body">
                 <div class="block">
