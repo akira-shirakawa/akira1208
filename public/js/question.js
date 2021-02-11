@@ -95,7 +95,13 @@ $(function(){
         quizArea.find('.quiz_no').text((quiz_cnt + 1));
         //問題文を表示
         quizArea.find('.quiz_question').text(aryQuiz[quiz_cnt]['question']);
-        pronounce(aryQuiz[quiz_cnt]['question']);
+    let u = new SpeechSynthesisUtterance(aryQuiz[quiz_cnt]['question']);
+    var voices = speechSynthesis.getVoices();
+   voices.forEach(function(v, i){
+        //イタリア人風
+        if(v.name == 'Google US English' || v.name =="Karen") u.voice = v;
+    });    
+   speechSynthesis.speak(u);        
         //正解の回答を取得する
         var success = aryQuiz[quiz_cnt]['answer'][0];
           corr.push(success); 
