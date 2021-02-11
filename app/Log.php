@@ -78,8 +78,9 @@ class Log extends Model
     foreach ( $result as $key => $value) {
         $sort[$key] = $value['point'];
     }
-    
-    array_multisort($sort, SORT_DESC, $result);     
+    if(!empty($result)){ 
+    array_multisort($sort, SORT_DESC, $result);  
+    } 
        return $result;
        
         
