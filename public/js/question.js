@@ -20,7 +20,8 @@ $(function(){
     //回答を選択した後の処理
     quizArea.on('click', '.quiz_ans_area ul li', function(){
             quizArea.find('.quiz_area_icon').addClass('true');
-       const se=new Audio('https://akira32310901.s3.amazonaws.com/Quiz-Correct_Answer02-1.mp3');       
+       const se=new Audio('https://akira32310901.s3.amazonaws.com/Quiz-Correct_Answer02-1.mp3'); 
+                   se.play();        
         //画面を暗くするボックスを表示（上から重ねて、結果表示中は選択肢のクリックやタップを封じる
         quizArea.find('.quiz_area_bg').show();
         //選択した回答に色を付ける
@@ -29,7 +30,6 @@ $(function(){
         if($(this).data('true')){
             //正解の処理 〇を表示
  
-            se.play();        
             //正解数をカウント
             quiz_success_cnt++;
              $.ajax({
@@ -145,10 +145,13 @@ $(function(){
  function pronounce(au) {
 
     let word = au;
-    let u = new SpeechSynthesisUtterance();
-    u.lang = 'en-US';
-    u.text = word;
-    speechSynthesis.speak(u);
+    let u = new SpeechSynthesisUtterance(word);
+    var voices = speechSynthesis.getVoices();
+   voices.forEach(function(v, i){
+        //イタリア人風
+        if(v.name == 'Google US English' || v.name =="Karen") u.voice = v;
+    });    
+   speechSynthesis.speak(u);
 
   }
   function show_result(array1,array2,array3){
