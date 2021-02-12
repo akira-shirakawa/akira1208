@@ -9,6 +9,9 @@ use Auth;
 use App\User;
 use App\Reply;
 use App\Notification;
+use Storage;
+
+
 
 class LogController extends Controller
 {
@@ -96,9 +99,21 @@ class LogController extends Controller
      * @param  \App\Log  $log
      * @return \Illuminate\Http\Response
      */
-    public function edit(Log $log)
-    {
-        //
+     public function edit(Request $request){
+       
+              $filename = $request->file('image')->getClientOriginalName();
+                $path = $request->file('image')->storeAs('public', $filename);
+                $contents = Storage::get('public/'.$filename);
+                $pa=Storage::disk('s3')->put($filename, $contents, 'public'); // Ｓ３にアップ
+                $image= Storage::disk('s3')->url($filename);
+               $message = User::find(Auth::id());
+               $message->name = $request->name;
+               $message->high_school_name = $request->high_school_name;
+               $message->college = $request->college;
+               $message->image=$image;
+               $message->save();
+                                   
+           return back();
     }
 
     /**

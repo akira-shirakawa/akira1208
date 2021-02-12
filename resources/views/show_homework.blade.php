@@ -5,18 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
-    <nav class="navbar" role="navigation" aria-label="main navigation">
+    <nav class="navbar" role="navigation" aria-label="main navigation"> 
         <div class="navbar-brand">
+             <a class="navbar-item" href="../../home"> 
+             <i class="fas fa-home"></i>
+            </a>             
           @auth
-          <a class="navbar-item" href="user/{{Auth::id()}}">
+          <a class="navbar-item" href="../../user/{{Auth::id()}}">
           <figure class="image is-32x32">
           <img class="is-rounded" src="{{Auth::user()->image ?? "https://bulma.io/images/placeholders/128x128.png"}}">
         </figure>
         </a>
-             <a class="navbar-item" href="homework/{{Auth::id()}}">
+             <a class="navbar-item" href="../../homework/{{Auth::id()}}"> 
               課題
             </a> 
                 <a class="button is-primary" href="{{ route('logout') }}"
@@ -35,7 +39,7 @@
                     {{ csrf_field() }}
                 </form>     
         </div>
-      </nav>    
+      </nav> 
     <div class="columns ">
         <div class="column">
             

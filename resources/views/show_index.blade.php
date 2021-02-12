@@ -10,18 +10,18 @@
     <title>Document</title>
 </head>
 <body>
-    <nav class="navbar" role="navigation" aria-label="main navigation">
+    <nav class="navbar" role="navigation" aria-label="main navigation"> 
         <div class="navbar-brand">
-             <a class="navbar-item" href="../home">
+             <a class="navbar-item" href="../../home"> 
              <i class="fas fa-home"></i>
             </a>             
           @auth
-          <a class="navbar-item" href="user/{{Auth::id()}}">
+          <a class="navbar-item" href="../../user/{{Auth::id()}}">
           <figure class="image is-32x32">
           <img class="is-rounded" src="{{Auth::user()->image ?? "https://bulma.io/images/placeholders/128x128.png"}}">
         </figure>
         </a>
-             <a class="navbar-item" href="homework/{{Auth::id()}}">
+             <a class="navbar-item" href="../../homework/{{Auth::id()}}"> 
               課題
             </a> 
                 <a class="button is-primary" href="{{ route('logout') }}"
@@ -40,7 +40,7 @@
                     {{ csrf_field() }}
                 </form>     
         </div>
-      </nav>    
+      </nav>      
     <div class="columns is-desktop">
         <div class="column is-half is-offset-one-quarter">
            

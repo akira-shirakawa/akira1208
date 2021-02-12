@@ -37,6 +37,7 @@ Route::group(['middleware' => 'auth:user'], function() {
     Route::post('/homework','HomeworkController@store');
     Route::post('/homework_edit','HomeworkController@edit');
     Route::get('/homework/{id}','ReplyController@show');
+    route::post('/user','LogController@edit');  
 });
  
 /*
@@ -61,6 +62,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
     Route::get('make','Admin\HomeController@create');
     Route::get('homework','HomeworkController@index');
     Route::get('question','QuestionController@create');
+    Route::get('message','NotificationController@index');
     
     
 });
@@ -70,6 +72,7 @@ Route::post('reply','ReplyController@store');
 Route::post('reply_edit','ReplyController@edit');
 Route::post('log','LogController@store');
 Route::post('notification','NotificationController@store');
+Route::post('message','NotificationController@destroy');
 
 
 

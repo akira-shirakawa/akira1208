@@ -7,6 +7,9 @@
     <title>Document</title>
 </head>
 <body>
+<nav class="navbar is-danger"> 
+  <h1 class="title">Admin</h1> <!-- navbar brand, navbar menu... -->
+</nav>  
     <div class="columns">
         <div class="column"></div>
         <div class="column is-half">
@@ -77,6 +80,32 @@
                   </div>
                 </div>
               </div>
+<article class="panel is-danger">
+  <p class="panel-heading">
+    Contents manegement 
+  </p>
+ 
+ 
+  <a class="panel-block is-active" href="message/">
+    <span class="panel-icon">
+      <i class="fas fa-book" aria-hidden="true"></i>
+    </span>
+    message
+  </a>
+  <a class="panel-block">
+    <span class="panel-icon">
+      <i class="fas fa-book" aria-hidden="true"></i>
+    </span>
+    article
+  </a>
+  <a class="panel-block">
+    <span class="panel-icon">
+      <i class="fas fa-book" aria-hidden="true"></i>
+    </span>
+   question
+  </a>
+
+</article>              
         </div>
         <div class="column"></div>
     </div>

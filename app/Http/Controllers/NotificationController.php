@@ -14,7 +14,9 @@ class NotificationController extends Controller
      */
     public function index()
     {
-        //
+        $message = Notification::all();
+        return view('admin.message',['message'=>$message]);
+        
     }
 
     /**
@@ -83,8 +85,12 @@ class NotificationController extends Controller
      * @param  \App\Notification  $notification
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Notification $notification)
+    public function destroy(Request $request)
     {
-        //
+        $id = $request->message; 
+        $message = Notification::find($id);
+        $message->delete();
+        return back();
+        
     }
 }

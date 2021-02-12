@@ -6,68 +6,41 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet"> 
 </head>
 <body>
-    <nav class="navbar" role="navigation" aria-label="main navigation">
+    <nav class="navbar" role="navigation" aria-label="main navigation"> 
         <div class="navbar-brand">
-          <a class="navbar-item" href="https://bulma.io">
-            <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
-          </a>
-      
-          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-          </a>
+             <a class="navbar-item" href="../../home"> 
+             <i class="fas fa-home"></i>
+            </a>             
+          @auth
+          <a class="navbar-item" href="../../user/{{Auth::id()}}">
+          <figure class="image is-32x32">
+          <img class="is-rounded" src="{{Auth::user()->image ?? "https://bulma.io/images/placeholders/128x128.png"}}">
+        </figure>
+        </a>
+             <a class="navbar-item" href="../../homework/{{Auth::id()}}"> 
+              課題
+            </a> 
+                <a class="button is-primary" href="{{ route('logout') }}"
+ 
+                    onclick="event.preventDefault();
+                             document.getElementById('logout-form').submit();">
+                    Logout
+                </a>            
+          @endauth
+             @guest
+                <a class="button is-primary" href="{{ route('login') }}">
+                  <strong>Login</strong>
+                </a>
+              @endguest         
+                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    {{ csrf_field() }}
+                </form>     
         </div>
-      
-        <div id="navbarBasicExample" class="navbar-menu">
-          <div class="navbar-start">
-            <a class="navbar-item">
-              Home
-            </a>
-      
-            <a class="navbar-item">
-              Documentation
-            </a>
-      
-            <div class="navbar-item has-dropdown is-hoverable">
-              <a class="navbar-link">
-                More
-              </a>
-      
-              <div class="navbar-dropdown">
-                <a class="navbar-item">
-                  About
-                </a>
-                <a class="navbar-item">
-                  Jobs
-                </a>
-                <a class="navbar-item">
-                  Contact
-                </a>
-                <hr class="navbar-divider">
-                <a class="navbar-item">
-                  Report an issue
-                </a>
-              </div>
-            </div>
-          </div>
-      
-          <div class="navbar-end">
-            <div class="navbar-item">
-              <div class="buttons">
-                <a class="button is-primary">
-                  <strong>Sign up</strong>
-                </a>
-                <a class="button is-light">
-                  Log in
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </nav>
+      </nav> 
       <div class="columns">
         <div class="column ">
             
@@ -94,11 +67,33 @@
                   </div>
               
                   <div class="content">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-                    <a href="#">#css</a> <a href="#">#responsive</a>
-                    <br>
-                    <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                    <button class="js-target button is-link">プロフィールを編集</button>
+                     <div class="modal">
+                      <div class="modal-background"></div>
+                      <div class="modal-content">
+                        <form action="../user" method="post" enctype="multipart/form-data">
+                          {{csrf_field()}} 
+                         <div class="card">
+                          <div class="card-content">
+                            <div class="content">
+                              <h2 class="subtitle">プロフィールを編集</h2> 
+                              <input class="input" type="text" name="name" placeholder="名前" required> 
+                              <input class="input" type="text"  name="high_school_name" placeholder="高校">
+                              <input class="input" type="text" name="college" placeholder="志望校">
+                              <input type="file" name="image" onchange="previewImage(this);">
+                            </div>
+                          </div>
+                        </div> 
+                        <input type="submit" value="変更を保存" class="button"> 
+                        </form>
+                        <p>
+                        Preview:<br>
+                        <img id="preview" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="max-width:200px;">
+                        </p>                        
+                      </div>
+                      <button class="modal-close is-large" aria-label="close"></button>
+                    </div>
+                    
                   </div>
                 </div>
               </div>
@@ -118,5 +113,21 @@
         </div>
       </footer>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+  $('.js-target').click(function(){
+    $('.modal').toggleClass('is-active')
+  }); 
+  $('.modal-background').click(function(){ 
+    $('.modal').toggleClass('is-active');
+  }); 
+  function previewImage(obj)
+{
+	var fileReader = new FileReader();
+	fileReader.onload = (function() {
+		document.getElementById('preview').src = fileReader.result;
+	});
+	fileReader.readAsDataURL(obj.files[0]);
+}
+</script>
 </body>
 </html>

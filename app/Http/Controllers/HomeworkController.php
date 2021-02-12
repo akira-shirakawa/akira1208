@@ -79,7 +79,7 @@ class HomeworkController extends Controller
                 $message->article_id =$request->article_id;
                $message->image=$image;
                 $message->save();
-                                    
+                                  
            return back();
     }
 

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>聖ラーニング</title>　
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
@@ -58,7 +58,7 @@
                   <button class="delete" aria-label="delete"></button>
                 </div>
                 <div class="message-body">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>, in mollis lectus. Donec sodales, arcu et sollicitudin porttitor, tortor urna tempor ligula, id porttitor mi magna a neque. Donec dui urna, vehicula et sem eget, facilisis sodales sem.
+                 お知らせはまだありません 
                 </div>
               </article>
               @endauth
@@ -152,16 +152,23 @@
    </table>
   </ul>
   <ul>
+    <table class="table">
   @foreach($day as $key)
-   <li><figure class="image is-32x32">
+   <tr><td><figure class="image is-32x32">
   <img class="is-rounded" src="{{$user->get_user($key['user_id'])->image  ?? "https://bulma.io/images/placeholders/128x128.png"}}">
-</figure>{{$user->get_user($key['user_id'])->name}} {{$key['point']}}point</li> 
+</figure></td><td>{{$user->get_user($key['user_id'])->name}} </td><td>{{$key['point']}}point</td></tr>  
    @endforeach
+   </table>
   </ul>
-  <ul>
-    @foreach($month as $key)
-   <li>{{$key['point']}}point</li>
+  
+   <ul>
+    <table class="table">
+  @foreach($month as $key) 
+   <tr><td><figure class="image is-32x32">
+  <img class="is-rounded" src="{{$user->get_user($key['user_id'])->image  ?? "https://bulma.io/images/placeholders/128x128.png"}}">
+</figure></td><td>{{$user->get_user($key['user_id'])->name}} </td><td>{{$key['point']}}point</td></tr>  
    @endforeach
+   </table>
   </ul>
 </div>   
     </div>

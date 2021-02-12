@@ -2,7 +2,7 @@ $(function(){
  
     var quizArea = $('.quiz_area'); //クイズを管理するDOMを指定
     var quiz_html = quizArea.html(); //もう一度　を押した時に元に戻すため初期HTMLを変数で保管
-    var quiz_cnt = 0; //現在の問題数を管理
+    var quiz_cnt = 10; //現在の問題数を管理
     var quiz_fin_cnt = 10; //何問で終了か設定（クイズ数以下であること）
     var quiz_success_cnt = 0; //問題の正解数
     let my_select = [];
@@ -14,7 +14,7 @@ $(function(){
     var aryQuiz = p;
    
     
-    quizReset();
+  quizReset();
    
     
     //回答を選択した後の処理
@@ -49,7 +49,7 @@ $(function(){
                 })
                 
                 .fail(function(data) {
-                    alert('失敗');
+                    console.log('失敗'); 
                 });            
         }else{
             //不正解の処理
