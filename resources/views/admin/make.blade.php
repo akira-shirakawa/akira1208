@@ -5,11 +5,11 @@
     <title>Tex記法</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+ <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script> 
 
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-    </script>
+   
+   
     <script type="text/x-mathjax-config">
       MathJax.Hub.Config({
         TeX: { equationNumbers: { autoNumber: "AMS" }},
@@ -45,7 +45,7 @@
     <div class="columns is-mobile">
         <div class="column is-half ">
          <p>
-          \\(sqrt2\\)
+          $\sqrt2$ 
          </p>
             <form action="/make" method="post">
               {{ csrf_field() }}

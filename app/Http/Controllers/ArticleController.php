@@ -55,6 +55,7 @@ class ArticleController extends Controller
      $message = Article::find($id);
      $message2 = new ArticleController;
      $message3 =  Post::where('user_id',Auth::id())->where('article_id',$id)->get()->first();
+    $message3 =  !empty($message3)? $message3->memo : null;  
      return view('show_article',['message'=>$message,'message2'=>$message2,'message3'=>$message3]);
      
     }
@@ -80,6 +81,7 @@ class ArticleController extends Controller
        
         $message = Article::where("subject","$id")->get();
         $message2 =new Article;
+        $message3 = new HomeworkController;  
         $tmp =[];
         foreach($message as $key){
             $tmp2=[];
@@ -90,7 +92,7 @@ class ArticleController extends Controller
          $tmp[] =$tmp2;
         }
         $message = $message2->group_by($tmp,'category');
-        return view('show_index',['message'=>$message]);
+        return view('show_index',['message'=>$message,'message3'=>$message3]);
         
         
        

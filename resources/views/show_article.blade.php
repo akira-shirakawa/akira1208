@@ -5,7 +5,20 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+         <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script> 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" }},
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          processEscapes: true
+        },
+        "HTML-CSS": { matchFontHeight: false },
+        displayAlign: "left",
+        displayIndent: "2em"
+      });
+  </script>    
     <title>Document</title>
 </head>
 <body >
@@ -52,8 +65,8 @@
       ログインしてメモを書いてみよう
     </div>
     @endguest
-    <textarea class="textarea" placeholder="10 lines of textarea" rows="10" name='memo' id="js-count" required>{{$message3->memo ?? null}}</textarea>   
-    <button class="button is-black js-target">保存</button><span class="js-count-target">{{mb_strlen($message3->memo) ?: 0}}</span>/1000    
+    <textarea class="textarea" placeholder="10 lines of textarea" rows="10" name='memo' id="js-count" required>{{$message3}}</textarea>     
+    <button class="button is-black js-target">保存</button><span class="js-count-target">{{mb_strlen($message3)}}</span>/1000     
     <button class="button is-loading is-black js-target2 hide">保存</button> 
     
   </div>

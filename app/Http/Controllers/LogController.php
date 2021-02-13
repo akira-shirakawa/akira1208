@@ -100,17 +100,19 @@ class LogController extends Controller
      * @return \Illuminate\Http\Response
      */
      public function edit(Request $request){
-       
+            if(!empty($request->file('image'))){ 
               $filename = $request->file('image')->getClientOriginalName();
                 $path = $request->file('image')->storeAs('public', $filename);
                 $contents = Storage::get('public/'.$filename);
                 $pa=Storage::disk('s3')->put($filename, $contents, 'public'); // Ｓ３にアップ
                 $image= Storage::disk('s3')->url($filename);
+                 $message->image=$image;
+            }
                $message = User::find(Auth::id());
                $message->name = $request->name;
                $message->high_school_name = $request->high_school_name;
-               $message->college = $request->college;
-               $message->image=$image;
+               $message->college = $request->college; 
+              
                $message->save();
                                    
            return back();

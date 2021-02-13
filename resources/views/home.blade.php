@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>聖ラーニング</title>　
+    <title>あきらラーニング</title>　　
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
@@ -42,7 +42,7 @@
          
         <div class="hero-body">
           <p class="title has-text-white-ter">
-            聖ラーニング
+            あきらラーニング
           </p>
           <p class="subtitle has-text-white-ter ">
              Akira lerning
@@ -142,12 +142,18 @@
   <div class="card-content">
     <div class="content">
 <div class="area">
-  <ul class="show">
+  <ul class="show" style="margin-left:0px;"> 
     <table class="table">
     @foreach($message as $key)
-   <tr><td><figure class="image is-32x32">
+      @if ($loop->first)
+   <tr><td class="first"><img src="https://akira32310901.s3.amazonaws.com/public/ranking_1st.png"></td><td><figure class="image is-32x32">
+  <img class="is-rounded" src="{{$key->image ?? "https://bulma.io/images/placeholders/128x128.png"}}">
+</figure></td><td is-size-4>{{$key->name}} </td><td is-size-4> {{$key->point}}Point</td></tr>   
+      @else  
+   <tr><td></td><td><figure class="image is-32x32">
   <img class="is-rounded" src="{{$key->image ?? "https://bulma.io/images/placeholders/128x128.png"}}">
 </figure></td><td>{{$key->name}} </td><td> {{$key->point}}Point</td></tr>
+     @endif
    @endforeach
    </table>
   </ul>
@@ -235,6 +241,9 @@
         </div>
       </footer>
   <style>
+ ul .show{ 
+   margin-left:none; 
+ }
     .columns{
       padding-top:15px;
     }
