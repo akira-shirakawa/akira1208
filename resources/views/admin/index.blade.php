@@ -92,7 +92,7 @@
     </span>
     message
   </a>
-  <a class="panel-block">
+  <a class="panel-block" href="article">
     <span class="panel-icon">
       <i class="fas fa-book" aria-hidden="true"></i>
     </span>

@@ -18,7 +18,8 @@ class ArticleController extends Controller
      */
     public function index()
     {
-       
+       $message = Article::all();
+       return view('admin.show_article',['message'=>$message]);
     }
 
     /**
@@ -127,8 +128,12 @@ class ArticleController extends Controller
      * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Article $article)
+    public function destroy(Request $request)
     {
-        //
+        $message = $request->id; 
+      
+       Article::destroy($message);
+        return back();
+        
     }
 }

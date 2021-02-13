@@ -19,11 +19,11 @@
                     <th>detail</th>
                 </tr>
              @foreach($message as $message)
-              @if(empty($message2->return_statue($message->user->id,$message->article->id))  )
+              @if(empty($message2->return_statue2($message->user->id,$message->article->id))  )
                <tr>
                    <td>{{$message->user->name}}</td>
                    <td>{{$message->article->title}}</td>
-             <td><button class="is-success button">{{$message2->show_statue($message->user->id,$message->article->id) }}</button></td>   
+             <td><button class="is-success button">{{$message2->show_statue2($message->user->id,$message->article->id) }}</button></td>   
              
                    
                    
@@ -71,11 +71,11 @@
                    </td>                     
                    
                </tr>
-              @elseif ( $message2->return_statue($message->user->id,$message->article->id)->statue == 5)
+              @elseif ( $message2->return_statue2($message->user->id,$message->article->id)->statue == 5)
                <tr>
                    <td>{{$message->user->name}}</td>
                    <td>{{$message->article->title}}</td>
-             <td><button class="is-success button">{{$message2->show_statue($message->user->id,$message->article->id) }}</button></td>   
+             <td><button class="is-success button">{{$message2->show_statue2($message->user->id,$message->article->id) }}</button></td>   
              
                    
                    
@@ -97,7 +97,7 @@
                          </section>
                         <footer class="modal-card-foot">
                          <form action="../reply_edit" method="post">
-                             <input type="hidden" name ="reply_id" value="{{$message2->return_statue($message->user->id,$message->article->id)->id}}">
+                             <input type="hidden" name ="reply_id" value="{{$message2->return_statue2($message->user->id,$message->article->id)->id}}">
                              {{ csrf_field() }}
                              
                             <textarea class="textarea" placeholder="e.g. Hello world" name ="comment">

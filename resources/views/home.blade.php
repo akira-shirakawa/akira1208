@@ -198,7 +198,7 @@
                 <span class="icon has-text-success">
                   <i class="fab fa-line"></i>
                 </span>                  
-                line at で相談しませんか？
+                <a href="https://lin.ee/ArBZpHL">line at で相談しませんか？</a> 
                             
                 </div>                 
                 </div>

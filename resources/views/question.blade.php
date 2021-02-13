@@ -105,8 +105,7 @@ var p = JSON.parse('<?php echo $php_json; ?>');
     quizArea.on('click', '.quiz_ans_area ul li', function(){
         console.log('hoge'); 
             quizArea.find('.quiz_area_icon').addClass('true');
-       const se=new Audio('https://akira32310901.s3.amazonaws.com/Quiz-Correct_Answer02-1.mp3'); 
-                   se.play();        
+       
         //画面を暗くするボックスを表示（上から重ねて、結果表示中は選択肢のクリックやタップを封じる
         quizArea.find('.quiz_area_bg').show();
         //選択した回答に色を付ける
@@ -114,7 +113,8 @@ var p = JSON.parse('<?php echo $php_json; ?>');
        my_select.push($(this).text());
         if($(this).data('true')){
             //正解の処理 〇を表示
- 
+        const se=new Audio('https://akira32310901.s3.amazonaws.com/Quiz-Correct_Answer02-1.mp3'); 
+                   se.play(); 
             //正解数をカウント
             quiz_success_cnt++;
              $.ajax({
