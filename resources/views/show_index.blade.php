@@ -54,7 +54,10 @@
                 <div class="panel-block is-flex-wrap-wrap">
                     @foreach($message as $message)
                     <div class="items2">
-                      <div class="content"> <a href="show/{{$message['id']}}">{{$message['title']}}</a></div> <div class="statue{{$message3->return_statue(Auth::id(),$message['id'])['statue']}}"> <i class="fas fa-check"></i></div>
+                      <div class="content"> <a href="show/{{$message['id']}}">{{$message['title']}}</a></div> 
+                      @auth
+                      <div class="statue{{$message3->return_statue(Auth::id(),$message['id'])}}"> <i class="fas fa-check"></i></div>
+                      @endauth 
                     </div>
                   @endforeach
                 </div>
