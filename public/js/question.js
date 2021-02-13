@@ -13,8 +13,12 @@ $(function(){
     //answerの選択肢の数はいくつでもOK　ただし先頭を正解とすること(出題時に選択肢はシャッフルされる)
     var aryQuiz = p;
    
-    
-  quizReset();
+  $('#js-start').click(function(){ 
+      console.log('hoge');
+      $('#js-start').hide();  
+       quizReset();
+  })  
+ 
    
     
     //回答を選択した後の処理

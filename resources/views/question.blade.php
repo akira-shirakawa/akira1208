@@ -45,10 +45,11 @@
 <div class="columns">
     <div class="column"></div>
     <div class="column is-half">
+       
    <div class="quiz_area">
     <div class="quiz_set">
         第<span class="quiz_no">0</span>問
-        <div class="quiz_question"></div>
+        <div class="quiz_question"> <button id="js-start" class="button">Start</button></div>
         <div class="quiz_ans_area">
             <ul></ul>
         </div>
@@ -71,8 +72,12 @@ var p = JSON.parse('<?php echo $php_json; ?>');
     html{
         text-align:center; 
     }
+    .hide{
+        display:none;
+    }
 </style>
    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js?ver=1.12.4'></script>
   <script src="{{ asset('js/question.js') }}"></script>
+  
 </body>
 </html>
