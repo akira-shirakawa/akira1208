@@ -49,7 +49,7 @@
    <div class="quiz_area">
     <div class="quiz_set">
         第<span class="quiz_no">0</span>問
-        <div class="quiz_question"> <button id="js-start" class="button">Start</button></div>
+        <div class="quiz_question"> <button id="js-start" class="button">Start </button></div>
         <div class="quiz_ans_area">
             <ul></ul>
         </div>
