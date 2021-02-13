@@ -20,7 +20,11 @@
         </a>
              <a class="navbar-item" href="homework/{{Auth::id()}}">
               課題
-            </a> 
+            </a>
+             <a class="navbar-item" href="#">
+                     {{auth::user()->point}}Pt
+            </a>
+    
                 <a class="button is-primary" href="{{ route('logout') }}"
  
                     onclick="event.preventDefault();
@@ -58,7 +62,7 @@
                   <button class="delete" aria-label="delete"></button>
                 </div>
                 <div class="message-body">
-                 お知らせはまだありません 
+                共通一次試験まであと <h2 class="subtitle js-target">Subtitle</h2>     
                 </div>
               </article>
               @endauth
@@ -195,7 +199,7 @@
                   <i class="fab fa-line"></i>
                 </span>                  
                 line at で相談しませんか？
-                <h2 class="subtitle js-target">Subtitle</h2>                
+                            
                 </div>                 
                 </div>
               </article>
