@@ -14,7 +14,7 @@
     <nav class="navbar" role="navigation" aria-label="main navigation"> 
         <div class="navbar-brand">
              <a class="navbar-item" href="../../home">
-             <i class="fas fa-home"></i>
+             <i class="fas fa-home is-size-4"></i> 
             </a>             
           @auth
           <a class="navbar-item" href="../../user/{{Auth::id()}}">
@@ -43,6 +43,22 @@
         </div>
       </nav>      
 <div class="columns">
+    @guest
+<div class="modal"> 
+  <div class="modal-background"></div>
+  <div class="modal-content">
+<div class="card">
+  <div class="card-content">
+    <div class="content">
+      ログインすれば習得した単語を記録できます <br>
+      <a href="{{ route('login') }}" class="button">ログイン</a>
+    </div>
+  </div>
+</div>
+  </div>
+  <button class="modal-close is-large" aria-label="close"></button>
+</div> 
+@endguest  
     <div class="column"></div>
     <div class="column is-half">
        
@@ -208,6 +224,7 @@ var p = JSON.parse('<?php echo $php_json; ?>');
     
     //結果を表示する関数
     function quizResult(){
+        $('.modal').addClass('is-active');
         quizArea.find('.quiz_set').hide();
         var text = quiz_fin_cnt + '問中' + quiz_success_cnt + '問正解！';
         if(quiz_fin_cnt === quiz_success_cnt){
@@ -233,6 +250,9 @@ var p = JSON.parse('<?php echo $php_json; ?>');
         }
         return arr;
     }
+    $('.modal-background').click(function(){
+    $('.modal').removeClass('is-active'); 
+    });
  function pronounce(au) {
 
     let word = au;

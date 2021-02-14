@@ -42,14 +42,14 @@
                 </form>     
         </div>
       </nav>
-       <section class="hero is-medium mb-1" style="background:url(https://akira32310901.s3.amazonaws.com/%E3%83%81%E3%83%A7%E3%82%B310.12.jpg) center">
+       <section class="hero is-medium mb-1" style="background:url(https://akira32310901.s3.amazonaws.com/public/%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97+9.png) center">
          
         <div class="hero-body">
-          <p class="title has-text-white-ter">
+          <p class="title ">
             あきらラーニング
           </p>
-          <p class="subtitle has-text-white-ter ">
-             Akira lerning
+          <p class="subtitle  ">
+             Akira lerningVer1.0  
           </p>
         </div>
       </section>     
@@ -153,10 +153,20 @@
    <tr><td class="first"><img src="https://akira32310901.s3.amazonaws.com/public/ranking_1st.png"></td><td><figure class="image is-32x32">
   <img class="is-rounded" src="{{$key->image ?? "https://bulma.io/images/placeholders/128x128.png"}}">
 </figure></td><td is-size-4>{{$key->name}} </td><td is-size-4> {{$key->point}}Point</td></tr>   
-      @else  
+      @elseif($loop->index == 1)  
+   <tr><td><img src="https://akira32310901.s3.amazonaws.com/public/ranking_2nd.png"></td><td><figure class="image is-32x32">
+  <img class="is-rounded" src="{{$key->image ?? "https://bulma.io/images/placeholders/128x128.png"}}">
+</figure></td><td>{{$key->name}} </td><td> {{$key->point}}Point</td></tr>
+@elseif($loop->index ==2)
+   <tr><td><img src="https://akira32310901.s3.amazonaws.com/public/ranking_3rd.png"></td><td><figure class="image is-32x32">
+  <img class="is-rounded" src="{{$key->image ?? "https://bulma.io/images/placeholders/128x128.png"}}">
+</figure></td><td>{{$key->name}} </td><td> {{$key->point}}Point</td></tr>
+
+@else 
    <tr><td></td><td><figure class="image is-32x32">
   <img class="is-rounded" src="{{$key->image ?? "https://bulma.io/images/placeholders/128x128.png"}}">
 </figure></td><td>{{$key->name}} </td><td> {{$key->point}}Point</td></tr>
+
      @endif
    @endforeach
    </table>
@@ -196,7 +206,7 @@
                 <div class="message-body">
                 <div class="block">
                 <span class="icon has-text-success">
-                  <i class="fab fa-line"></i>
+                  <i class="fab fa-line is-size-3"></i> 
                 </span>                  
                 <a href="https://lin.ee/ArBZpHL">line at で相談しませんか？</a> 
                             
@@ -245,6 +255,13 @@
         </div>
       </footer>
   <style>
+  
+  @media(max-width:400px){
+     .hero{
+    background:url(https://akira32310901.s3.amazonaws.com/public/%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97+4.png) center;
+  }
+  }
+ 
  ul .show{ 
    margin-left:none; 
  }

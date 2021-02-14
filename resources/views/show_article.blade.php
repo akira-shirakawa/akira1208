@@ -25,7 +25,7 @@
     <nav class="navbar" role="navigation" aria-label="main navigation"> 
         <div class="navbar-brand">
              <a class="navbar-item" href="../../home">
-             <i class="fas fa-home"></i>
+             <i class="fas fa-home is-size-4"></i>  
             </a>             
           @auth
           <a class="navbar-item" href="../../user/{{Auth::id()}}">
@@ -128,7 +128,7 @@
                       <i class="fas fa-upload"></i>
                     </span>
                     <span class="file-label">
-                      ここから写真を送る
+                      課題ができ たら写真を撮ってここから送ってね
                     </span>
                   </span>
                 </label>

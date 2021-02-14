@@ -12,7 +12,7 @@
     <nav class="navbar" role="navigation" aria-label="main navigation"> 
         <div class="navbar-brand">
              <a class="navbar-item" href="../../home"> 
-             <i class="fas fa-home"></i>
+             <i class="fas fa-home is-size-4"></i> 
             </a>             
           @auth
           <a class="navbar-item" href="../../user/{{Auth::id()}}">
