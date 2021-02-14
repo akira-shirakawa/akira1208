@@ -56,7 +56,7 @@
              @foreach($message as $message)
                <tr>
                   
-                   <td>{{$message->article->title}}</td>
+                   <td>{{$message->article->title ?: nul}}</td>
              <td><button class="is-success button">{{$message2->show_statue($message->user->id,$message->article->id) }}</button></td>   
              
                    <td>
@@ -66,7 +66,7 @@
                       <div class="modal-background"></div>
                       <div class="modal-card">
                         <header class="modal-card-head">
-                          <p class="modal-card-title">{{$message->article->title}}</p>
+                          <p class="modal-card-title">{{$message->article->title ?: null}}</p>
                           <button class="delete" aria-label="close"></button>
                         </header>
                         <section class="modal-card-body">
