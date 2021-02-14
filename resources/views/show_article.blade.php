@@ -66,8 +66,10 @@
     </div>
     @endguest
     <textarea class="textarea" placeholder="10 lines of textarea" rows="10" name='memo' id="js-count" required>{{$message3}}</textarea>     
-    <button class="button is-black js-target">保存</button><span class="js-count-target">{{mb_strlen($message3)}}</span>/1000     
-    <button class="button is-loading is-black js-target2 hide">保存</button> 
+    <button class="button is-black js-target">保存</button> <button class="button is-loading is-black js-target2 hide">保存</button>
+    <button class="button js-target-time">打刻</button>
+    <span class="js-count-target">{{mb_strlen($message3)}}</span>/1000     
+   <button class="js-pien button">🥺</button>
     
   </div>
 </article>         
@@ -153,6 +155,18 @@
       </div>  
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script>
+        $('.js-pien').click(function(){
+          let date = $('.textarea').val();
+          let date2 = '🥺';
+          $('.textarea').val(date+date2); 
+        }); 
+        $('.js-target-time').click(function(){
+        console.log('hoge'); 
+          let date = new Date();
+          let date2 = date.toLocaleString();
+          let date3 = $('.textarea').val();
+          $('.textarea').val(date3+date2);   
+        });
         $('#js-count').keyup(function(){
           let count = $(this).val().length;
           $('.js-count-target').text(count);
