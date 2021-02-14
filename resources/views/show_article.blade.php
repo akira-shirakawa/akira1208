@@ -155,9 +155,13 @@
       </div>  
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script>
+        let count =0;
         $('.js-pien').click(function(){
           let date = $('.textarea').val();
           let date2 = '🥺';
+          count = date.length; 
+           $('.js-count-target').text(count);
+           
           $('.textarea').val(date+date2); 
         }); 
         $('.js-target-time').click(function(){
@@ -165,10 +169,12 @@
           let date = new Date();
           let date2 = date.toLocaleString();
           let date3 = $('.textarea').val();
+          count+= 17;
+            $('.js-count-target').text(count);
           $('.textarea').val(date3+date2);   
         });
         $('#js-count').keyup(function(){
-          let count = $(this).val().length;
+           count = $(this).val().length;
           $('.js-count-target').text(count);
          if(count >1000){ 
          $('.js-target').addClass('hide'); 
