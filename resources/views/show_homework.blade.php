@@ -57,7 +57,7 @@
                <tr>
                   
                    <td>{{$message2->get_date($message->article)}}</td>
-             <td><button class="is-success button">{{$message2->show_statue($message->user->id,$message->article->id) }}</button></td>   
+             <td><button class="is-success button">{{$message2->show_statue($message2->get_id($message->user),$message2->get_id($message->article)) }}</button></td>   
              
                    <td>
                      <button class="js-target button is-link">詳細を見る</button>
@@ -76,7 +76,7 @@
                          </section>
                         <footer class="modal-card-foot">
                             フィードバック
-                      {{$message2->get_reply($message->user->id,$message->article->id)}}
+                      {{$message2->get_reply($message2->get_id($message->user),$message2->get_id($message->article))}}
                       
                       
                         </footer>

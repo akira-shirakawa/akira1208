@@ -71,6 +71,14 @@ class ReplyController extends Controller
             return ; 
         }
     }
+    
+    public function get_id($data){
+        if(!empty($data)){
+            return $data->id;
+        }else{
+            return 0; 
+        }
+    }
     public function get_reply($user_id,$article_id){
         $message3 = Reply::where('user_id',$user_id)->where('article_id',$article_id)->get()->first();
       
