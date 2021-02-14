@@ -63,6 +63,14 @@ class ReplyController extends Controller
         return view('show_homework',['message'=>$message,'message2'=>$message2]);
         
     }
+    //deal with the error that trying to get propaty title of none object
+    public function get_date($date){
+        if(!empty($data)){
+            return $data->title;
+        }else{
+            return ; 
+        }
+    }
     public function get_reply($user_id,$article_id){
         $message3 = Reply::where('user_id',$user_id)->where('article_id',$article_id)->get()->first();
       
