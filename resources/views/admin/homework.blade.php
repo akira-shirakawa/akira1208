@@ -18,13 +18,13 @@
                     <th>statue</th>
                     <th>detail</th>
                 </tr>
-                @if(!empty($message))
+               
              @foreach($message as $message)
-              @if(empty($message2->return_statue2($message->user->id,$message->article->id))  )
+              @if(empty($message2->return_statue2(optional($message->user)->id,optional($message->article)->id))  )
                <tr>
                    <td>{{$message->user->name}}</td>
                    <td>{{$message->article->title}}</td>
-             <td><button class="is-success button">{{$message2->show_statue2($message->user->id,$message->article->id) }}</button></td>   
+             <td><button class="is-success button">{{$message2->show_statue2(optional($message->user)->id,optional($message->article)->id) }}</button></td>   
              
                    
                    
@@ -128,7 +128,7 @@
                @else
                @endif
                @endforeach
-               @endif
+              
             </table>
         </div>
       </div>
