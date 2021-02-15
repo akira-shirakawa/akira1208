@@ -49,9 +49,9 @@ class HomeworkController extends Controller
        
        return $message->statue ?? null; 
    }
-   public function return_statue2($user_id,$article_id){
+   public function return_statue2($user_id=0,$article_id=0){
        $message = Reply::where('user_id',$user_id)->where('article_id',$article_id)->get()->first();
-       return $message ?? null; 
+       return $message ; 
    }
     
 
