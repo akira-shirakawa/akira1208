@@ -18,6 +18,7 @@
                     <th>statue</th>
                     <th>detail</th>
                 </tr>
+                @if(!empty($message)) 
              @foreach($message as $message)
               @if(empty($message2->return_statue2(optional($message->user)->id,optional($message->article)->id))  )
                <tr>
@@ -127,6 +128,8 @@
                @else
                @endif
                @endforeach
+               
+               @endif
             </table>
         </div>
       </div>
