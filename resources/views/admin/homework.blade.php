@@ -22,8 +22,8 @@
              @foreach($message as $message)
               @if(empty($message2->return_statue2(optional($message->user)->id,optional($message->article)->id))  )
                <tr>
-                   <td>{{$message->user->name}}</td>
-                   <td>{{$message->article->title}}</td>
+                   <td>{{optional($message->user)->name}}</td>
+                   <td>{{optional($message->article)->title}}</td>
              <td><button class="is-success button">{{$message2->show_statue2(optional($message->user)->id,optional($message->article)->id) }}</button></td>   
              
                    
@@ -36,7 +36,7 @@
                       <div class="modal-background"></div>
                       <div class="modal-card">
                         <header class="modal-card-head">
-                          <p class="modal-card-title">{{$message->article->title}}</p>
+                          <p class="modal-card-title">{{optional($message->article)->title}}</p>
                           <button class="delete" aria-label="close"></button>
                         </header>
                         <section class="modal-card-body">
