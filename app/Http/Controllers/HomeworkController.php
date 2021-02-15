@@ -17,18 +17,18 @@ class HomeworkController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    { 
       
           $message = Homework::all();
-          
-
+       
           $message2 = new HomeworkController;
        
       
         return view('admin.homework',['message'=>$message,'message2'=>$message2]);
+         
     }
     
-    public function show_statue($user_id,$article_id){
+    public function show_statue2($user_id,$article_id){
         
         
         $message = Reply::where('user_id',$user_id)->where('article_id',$article_id)->get();
@@ -49,7 +49,8 @@ class HomeworkController extends Controller
        
        return $message->statue ?? null; 
    }
-   public function return_statue2($user_id=0,$article_id=0){
+   public function return_statue2($user_id,$article_id){
+     
        $message = Reply::where('user_id',$user_id)->where('article_id',$article_id)->get()->first();
        return $message ; 
    }
