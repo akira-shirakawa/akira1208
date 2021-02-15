@@ -95,6 +95,9 @@
       </div>
       
       <style>
+  body{
+      font-family: '游ゴシック', YuGothic, 'メイリオ', Verdana, 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+  }      
           html{
               background:#eee;
           }

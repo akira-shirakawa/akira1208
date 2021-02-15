@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>あきらラーニング</title>　　
+    <title>あきらラーニング</title>　
+    <meta content="無料で共通一次試験対策ができるサイト" name="description">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
@@ -46,7 +47,7 @@
          
         <div class="hero-body">
           <p class="title ">
-            あきらラーニング
+            <h1 class="title">あきらラーニング</h1>
           </p>
           <p class="subtitle  ">
              Akira lerningVer1.0  
@@ -255,7 +256,9 @@
         </div>
       </footer>
   <style>
-  
+  body{
+      font-family: '游ゴシック', YuGothic, 'メイリオ', Verdana, 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+  }
   @media(max-width:400px){
      .hero{
     background:url(https://akira32310901.s3.amazonaws.com/public/%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97+4.png) center;

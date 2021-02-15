@@ -279,6 +279,10 @@ var p = JSON.parse('<?php echo $php_json; ?>');
   }
 });      
  </script>
-  
+  <style>
+  body{
+      font-family: '游ゴシック', YuGothic, 'メイリオ', Verdana, 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+  }      
+  </style>
 </body>
 </html>

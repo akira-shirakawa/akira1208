@@ -79,7 +79,7 @@
  <div class="notification is-success hide js-target4">
 正常に保存されました
 </div>         
-            <h2 class="title">{{$message->title}}</h2>
+            <h2 class="title has-text-centered">{{$message->title}}</h2>
            {!! nl2br(($message->content)) !!}
               <div class="homework">
                 @guest
@@ -226,6 +226,16 @@
         }
         </script>
       <style>
+  body{
+      font-family: '游ゴシック', YuGothic, 'メイリオ', Verdana, 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+  }
+  .title{
+    background:black;
+    color:white; 
+    border-radius:6px 6px 0 0; 
+    padding:10px 0 10px 0; 
+    text-align:center;
+  }
           html{
               background:#eee;
           }

@@ -19,11 +19,11 @@
                     <th>detail</th>
                 </tr>
              @foreach($message as $message)
-              @if(empty($message2->return_statue2($message->user->id,$message->article->id))  )
+              @if(empty($message2->return_statue2(optional($message->user)->id,optional($message->article)->id))  )
                <tr>
-                   <td>{{$message->user->name}}</td>
-                   <td>{{$message->article->title}}</td>
-             <td><button class="is-success button">{{$message2->show_statue2($message->user->id,$message->article->id) }}</button></td>   
+                   <td>{{optional($message->user)->name}}</td>
+                   <td>{{optional($message->article)->title}}</td>
+             <td><button class="is-success button">{{$message2->show_statue2(optional($message->user)->id,optional($message->article)->id) }}</button></td>   
              
                    
                    
@@ -35,12 +35,12 @@
                       <div class="modal-background"></div>
                       <div class="modal-card">
                         <header class="modal-card-head">
-                          <p class="modal-card-title">{{$message->article->title}}</p>
+                          <p class="modal-card-title">{{optional($message->article)->title}}</p>
                           <button class="delete" aria-label="close"></button>
                         </header>
                         <section class="modal-card-body">
                             <figure class="image is-128x128">
-                              <img src="{{$message->image}}" alt ="">
+                              <img src="{{optional($message)->image}}" alt ="">
                             </figure>                        
                          </section>
                         <footer class="modal-card-foot">
@@ -62,8 +62,8 @@
                           </label>
                         </div> 
                         <input type="submit" value="送信">
-                        <input type="hidden" name="user_id" value="{{$message->user->id}}">
-                        <input type="hidden" name="article_id" value="{{$message->article->id}}">
+                        <input type="hidden" name="user_id" value="{{optional($message->user)->id}}">
+                        <input type="hidden" name="article_id" value="{{optional($message->article)->id}}">
                          </form>
                         </footer>
                       </div>
@@ -71,11 +71,11 @@
                    </td>                     
                    
                </tr>
-              @elseif ( $message2->return_statue2($message->user->id,$message->article->id)->statue == 5)
+              @elseif ( $message2->return_statue2(optional($message->user)->id,optional($message->article)->id)->statue == 5)
                <tr>
-                   <td>{{$message->user->name}}</td>
-                   <td>{{$message->article->title}}</td>
-             <td><button class="is-success button">{{$message2->show_statue2($message->user->id,$message->article->id) }}</button></td>   
+                   <td>{{optional($message->user)->name}}</td>
+                   <td>{{optional($message->article)->title}}</td>
+             <td><button class="is-success button">{{$message2->show_statue2(optional($message->user)->id,optional($message->article)->id) }}</button></td>   
              
                    
                    
@@ -87,7 +87,7 @@
                       <div class="modal-background"></div>
                       <div class="modal-card">
                         <header class="modal-card-head">
-                          <p class="modal-card-title">{{$message->article->title}}</p>
+                          <p class="modal-card-title">{{optional($message->article)->title}}</p>
                           <button class="delete" aria-label="close"></button>
                         </header>
                         <section class="modal-card-body">
@@ -97,7 +97,7 @@
                          </section>
                         <footer class="modal-card-foot">
                          <form action="../reply_edit" method="post">
-                             <input type="hidden" name ="reply_id" value="{{$message2->return_statue2($message->user->id,$message->article->id)->id}}">
+                             <input type="hidden" name ="reply_id" value="{{$message2->return_statue2(optional($message->user)->id,optional($message->article->id))->id}}"> 
                              {{ csrf_field() }}
                              
                             <textarea class="textarea" placeholder="e.g. Hello world" name ="comment">
@@ -115,8 +115,8 @@
                           </label>
                         </div> 
                         <input type="submit" value="送信">
-                        <input type="hidden" name="user_id" value="{{$message->user->id}}">
-                        <input type="hidden" name="article_id" value="{{$message->article->id}}">
+                        <input type="hidden" name="user_id" value="{{optional($message->user)->id}}">
+                        <input type="hidden" name="article_id" value="{{optional($message->article)->id}}">
                          </form>
                         </footer>
                       </div>
@@ -131,6 +131,9 @@
         </div>
       </div>
       <style>
+  body{
+      font-family: '游ゴシック', YuGothic, 'メイリオ', Verdana, 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+  }      
           html{
               background:#eee;
           }

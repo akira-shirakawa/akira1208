@@ -129,5 +129,8 @@
 	fileReader.readAsDataURL(obj.files[0]);
 }
 </script>
+<style>
+  
+</style>
 </body>
 </html>
