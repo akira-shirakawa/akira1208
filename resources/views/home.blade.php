@@ -16,7 +16,9 @@
           @auth
           <a class="navbar-item" href="user/{{Auth::id()}}">
           <figure class="image is-32x32">
-          <img class="is-rounded" src="{{Auth::user()->image ?? "https://bulma.io/images/placeholders/128x128.png"}}">
+   <div class="box3">
+  <img src="{{Auth::user()->image ?? "https://bulma.io/images/placeholders/128x128.png"}}">
+  </div>
         </figure>
         </a>
              <a class="navbar-item" href="homework/{{Auth::id()}}">
@@ -151,22 +153,32 @@
     <table class="table">
     @foreach($message as $key)
       @if ($loop->first)
-   <tr><td class="first"><img src="https://akira32310901.s3.amazonaws.com/public/ranking_1st.png"></td><td><figure class="image is-32x32">
-  <img class="is-rounded" src="{{$key->image ?? "https://bulma.io/images/placeholders/128x128.png"}}">
-</figure></td><td is-size-4>{{$key->name}} </td><td is-size-4> {{$key->point}}Point</td></tr>   
+   <tr><td class="first">
+     
+     <img src="https://akira32310901.s3.amazonaws.com/public/ranking_1st.png"></td><td>
+   <div class="box2">
+  <img src="{{$key->image ?? "https://bulma.io/images/placeholders/128x128.png"}}">
+  </div>
+</td><td is-size-4>{{$key->name}} </td><td is-size-4> {{$key->point}}Point</td></tr>   
       @elseif($loop->index == 1)  
-   <tr><td><img src="https://akira32310901.s3.amazonaws.com/public/ranking_2nd.png"></td><td><figure class="image is-32x32">
-  <img class="is-rounded" src="{{$key->image ?? "https://bulma.io/images/placeholders/128x128.png"}}">
-</figure></td><td>{{$key->name}} </td><td> {{$key->point}}Point</td></tr>
+   <tr><td><img src="https://akira32310901.s3.amazonaws.com/public/ranking_2nd.png"></td><td>
+   <div class="box2">
+  <img src="{{$key->image ?? "https://bulma.io/images/placeholders/128x128.png"}}">
+  </div>
+</td><td>{{$key->name}} </td><td> {{$key->point}}Point</td></tr>
 @elseif($loop->index ==2)
-   <tr><td><img src="https://akira32310901.s3.amazonaws.com/public/ranking_3rd.png"></td><td><figure class="image is-32x32">
-  <img class="is-rounded" src="{{$key->image ?? "https://bulma.io/images/placeholders/128x128.png"}}">
-</figure></td><td>{{$key->name}} </td><td> {{$key->point}}Point</td></tr>
+   <tr><td><img src="https://akira32310901.s3.amazonaws.com/public/ranking_3rd.png"></td><td>
+   <div class="box2">
+  <img src="{{$key->image ?? "https://bulma.io/images/placeholders/128x128.png"}}">
+  </div>
+</td><td>{{$key->name}} </td><td> {{$key->point}}Point</td></tr>
 
 @else 
-   <tr><td></td><td><figure class="image is-32x32">
-  <img class="is-rounded" src="{{$key->image ?? "https://bulma.io/images/placeholders/128x128.png"}}">
-</figure></td><td>{{$key->name}} </td><td> {{$key->point}}Point</td></tr>
+   <tr><td></td><td>
+    <div class="box2">
+  <img src="{{$key->image ?? "https://bulma.io/images/placeholders/128x128.png"}}">
+  </div>
+</td><td>{{$key->name}} </td><td> {{$key->point}}Point</td></tr>
 
      @endif
    @endforeach
@@ -175,9 +187,11 @@
   <ul>
     <table class="table">
   @foreach($day as $key)
-   <tr><td><figure class="image is-32x32">
-  <img class="is-rounded" src="{{$user->get_user($key['user_id'])->image  ?? "https://bulma.io/images/placeholders/128x128.png"}}">
-</figure></td><td>{{$user->get_user($key['user_id'])->name}} </td><td>{{$key['point']}}point</td></tr>  
+   <tr><td>
+     <div class="box2">
+  <img src="{{$user->get_user($key['user_id'])->image  ?? "https://bulma.io/images/placeholders/128x128.png"}}">
+  </div>
+</td><td>{{$user->get_user($key['user_id'])->name}} </td><td>{{$key['point']}}point</td></tr>  
    @endforeach
    </table>
   </ul>
@@ -185,9 +199,11 @@
    <ul>
     <table class="table">
   @foreach($month as $key) 
-   <tr><td><figure class="image is-32x32">
-  <img class="is-rounded" src="{{$user->get_user($key['user_id'])->image  ?? "https://bulma.io/images/placeholders/128x128.png"}}">
-</figure></td><td>{{$user->get_user($key['user_id'])->name}} </td><td>{{$key['point']}}point</td></tr>  
+   <tr><td>
+     <div class="box2"> 
+  <img src="{{$user->get_user($key['user_id'])->image  ?? "https://bulma.io/images/placeholders/128x128.png"}}">
+  </div>
+</td><td>{{$user->get_user($key['user_id'])->name}} </td><td>{{$key['point']}}point</td></tr>  
    @endforeach
    </table>
   </ul>
@@ -260,11 +276,40 @@
       font-family: '游ゴシック', YuGothic, 'メイリオ', Verdana, 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
   }
   @media(max-width:400px){
+   
      .hero{
     background:url(https://akira32310901.s3.amazonaws.com/public/%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97+4.png) center;
   }
   }
  
+           .box2 {
+    width: 35px;
+    padding-top: 35px;     
+    position: relative;
+   
+}
+.box2>img{
+       width: 100%;
+       height: 100%;
+       position: absolute;
+       top: 0;
+       object-fit: cover;
+       border-radius: 50%;
+}
+           .box3 {
+    width: 30px;
+    padding-top: 30px;     
+    position: relative;
+   
+}
+.box3>img{
+       width: 100%;
+       height: 100%; 
+       position: absolute;
+       top: 0;
+       object-fit: cover;
+       border-radius: 50%;
+}
  ul .show{ 
    margin-left:none; 
  }
@@ -318,7 +363,7 @@ text-decoration: none;
         var date = new Date() ;
         var a = date.getTime() ;
         var b = Math.floor( a / 1000 ) ;
-        var date2 = new Date( 2022, 1, 16, 0, 00, 00 ) ;
+        var date2 = new Date( 2021, 12, 16, 0, 00, 00 ) ;
         var c = date2.getTime() ;
         var d = Math.floor( c / 1000 ) ;
         let result = d-b;

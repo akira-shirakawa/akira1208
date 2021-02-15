@@ -106,7 +106,14 @@ class LogController extends Controller
                 $contents = Storage::get('public/'.$filename);
                 $pa=Storage::disk('s3')->put($filename, $contents, 'public'); // Ｓ３にアップ
                 $image= Storage::disk('s3')->url($filename);
-                 $message->image=$image;
+               
+               $message = User::find(Auth::id());
+               $message->name = $request->name;
+               $message->high_school_name = $request->high_school_name;
+               $message->college = $request->college;                 
+               $message->image=$image;
+               $message->save();
+               return back();
             }
                $message = User::find(Auth::id());
                $message->name = $request->name;

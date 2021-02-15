@@ -29,9 +29,9 @@
             </a>             
           @auth
           <a class="navbar-item" href="../../user/{{Auth::id()}}">
-          <figure class="image is-32x32">
-          <img class="is-rounded" src="{{Auth::user()->image ?? "https://bulma.io/images/placeholders/128x128.png"}}">
-        </figure>
+   <div class="box3">
+  <img src="{{Auth::user()->image ?? "https://bulma.io/images/placeholders/128x128.png"}}">
+  </div>
         </a>
              <a class="navbar-item" href="../../homework/{{Auth::id()}}"> 
               課題
@@ -83,11 +83,13 @@
            {!! nl2br(($message->content)) !!}
               <div class="homework">
                 @guest
-                <div class="wrapper">
+                <div class="wrapper is-vcentered">
                   ログインして課題を提出してみよう
                 </div>
                 @endguest
+                @auth
                <div class="title">課題</div>
+               @endauth 
                {{$message->homework}}
             @switch($message2->distinct_homework(Auth::id(),$message->id))
                @case('再提出')
@@ -229,6 +231,20 @@
   body{
       font-family: '游ゴシック', YuGothic, 'メイリオ', Verdana, 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
   }
+             .box3 {
+    width: 30px;
+    padding-top: 30px;     
+    position: relative;
+   
+}
+.box3>img{
+       width: 100%;
+       height: 100%; 
+       position: absolute;
+       top: 0;
+       object-fit: cover;
+       border-radius: 50%;
+}
   .title{
     background:black;
     color:white; 
