@@ -50,8 +50,25 @@
 <div class="card">
   <div class="card-content">
     <div class="content">
-      ログインすれば習得した単語を記録できます <br>
-      <a href="{{ route('login') }}" class="button">ログイン</a>
+           <div class="card">
+                <div class="card-image">
+                  <figure class="image is-4by3">
+                    <img src="https://akira32310901.s3.amazonaws.com/public/IMG_4619.PNG" alt="Placeholder image">
+                  </figure>
+                </div>
+                <div class="card-content">
+               
+                    <div class="media-content">
+                      <p class="title is-4">  ログインすれば習得した単語を記録できます <br>
+      <a href="{{ route('login') }}" class="button">ログイン</a></p>
+                      
+                    </div>
+                 
+              
+                
+                </div>
+              </div>        
+    
     </div>
   </div>
 </div>
