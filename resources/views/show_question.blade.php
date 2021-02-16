@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet"> 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
-    <title>Document</title>
+    <title>共通一次試験英単語</title>
+      <meta content="無料で共通一次試験対策ができるサイト" name="description">
 </head>
 <body>
     <nav class="navbar" role="navigation" aria-label="main navigation"> 

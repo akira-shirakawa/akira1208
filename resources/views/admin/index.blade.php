@@ -8,7 +8,9 @@
 </head>
 <body>
 <nav class="navbar is-danger"> 
-  <h1 class="title">Admin</h1> <!-- navbar brand, navbar menu... -->
+  <h1 class="title">Admin</h1> 
+  <span class="title">合計登録者{{$message}}人</span>
+  <!-- navbar brand, navbar menu... -->
 </nav>  
     <div class="columns">
         <div class="column"></div>

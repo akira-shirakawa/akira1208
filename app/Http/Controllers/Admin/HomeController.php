@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Article;
 use App\Homework;
-
+use App\User;
 
 class HomeController extends Controller
 {
@@ -26,8 +26,9 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('admin.index');
+    {   $message = User::all();
+        $message = count($message);
+        return view('admin.index',['message'=>$message]);
     }
     public function create(){
         $message =new Article;
