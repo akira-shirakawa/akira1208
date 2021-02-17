@@ -53,7 +53,7 @@ class ArticleController extends Controller
      */
     public function show($id)
     {
-     $message = Article::find($id);
+     $message = Article::findOrfail($id);
      $message2 = new ArticleController;
      $message3 =  Post::where('user_id',Auth::id())->where('article_id',$id)->get()->first();
     $message3 =  !empty($message3)? $message3->memo : null;  

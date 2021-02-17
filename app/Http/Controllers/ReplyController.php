@@ -56,7 +56,7 @@ class ReplyController extends Controller
      */
     public function show( $id)
     {
-        $message = Homework::where('user_id',$id)->get();
+        $message = Homework::where('user_id',$id)->get();  
 
         $message2 = new ReplyController;
         
@@ -67,7 +67,9 @@ class ReplyController extends Controller
     public function get_date($date){
         if(!empty($data)){
             return $data->title;
+            
         }else{
+           
             return ; 
         }
     }

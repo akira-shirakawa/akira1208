@@ -55,8 +55,8 @@
                 </tr>
              @foreach($message as $message)
                <tr>
-                  
-                   <td>{{$message2->get_date($message->article)}}</td>
+                   
+                   <td>{{optional($message->article)->title}}</td>  
              <td><button class="is-success button">{{$message2->show_statue($message2->get_id($message->user),$message2->get_id($message->article)) }}</button></td>   
              
                    <td>
