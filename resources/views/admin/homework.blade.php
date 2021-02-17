@@ -97,8 +97,8 @@
                             </figure>                        
                          </section>
                         <footer class="modal-card-foot">
-                         <form action="../reply_edit" method="post">
-                             <input type="hidden" name ="reply_id" value="{{$message2->return_statue2(optional($message->user)->id,optional($message->article->id))->id}}">
+                         <form action="../reply_edit" method="post"> 
+                             <input type="hidden" name ="reply_id" value="{{$message2->return_statue2($message->user->id,$message->article->id)->id}}">
                              {{ csrf_field() }}
                              
                             <textarea class="textarea" placeholder="e.g. Hello world" name ="comment">
