@@ -17,8 +17,8 @@
  
 <meta property="og:site_name" content="あきらラーニング" />
  <meta name="twitter:card" content="summary_large_image" />
- <meta name="twitter:site" content="@@2tgtPb958VVgpRp" />
-<meta property="og:image" content="https://akira32310901.s3.amazonaws.com/public/%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97+5.png" />
+ <meta name="twitter:site" content="@@2tgtPb958VVgpRp" /> 
+<meta property="og:image" content="https://akira32310901.s3.amazonaws.com/public/group6.png" />
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
