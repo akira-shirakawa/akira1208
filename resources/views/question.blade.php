@@ -248,7 +248,8 @@ var p = JSON.parse('<?php echo $php_json; ?>');
             text += '<br>全問正解おめでとう！';
         }
         text += '<br><input type="button"    value="もう一度挑戦する" class="button quiz_restart p-10">';
-        text += '<br><a href="../1" class="button">一覧に戻る</a>';   
+        text += '<br><a href="../1" class="button">一覧に戻る</a>';
+        text += ' <a href="https://twitter.com/intent/tweet?text=https://akira-learning.com"><i class="fab fa-twitter-square"></i></a>';
         text += (show_result(corr,my_select,quiz_cash)); 
         corr = [];
         my_select =[];

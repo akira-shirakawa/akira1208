@@ -137,19 +137,19 @@
                   <span class="panel-icon">
                     <i class="fas fa-font"></i>
                   </span>
-                  英語
+                  英語Commingsoon
                 </a>
                 <a class="panel-block" href="article/2">
                   <span class="panel-icon">
                    <i class="fas fa-flask"></i>
                   </span>
-                  理科
+                  理科Commingsoon
                 </a>
                 <a class="panel-block">
                   <span class="panel-icon">
                    <i class="fas fa-globe-asia"></i>
                   </span>
-                  地理
+                  地理Commingsoon
                 </a>
               </article>
       <div class="title is-4">
@@ -157,8 +157,8 @@
       </div>
 <ul class="tab clearfix">
   <li class="active">総合</li>
-  <li>dayly</li>
-  <li>month</li>
+  <li>Dayly</li>
+  <li>Month</li>
 </ul>
 <div class="card">
   <div class="card-content">
