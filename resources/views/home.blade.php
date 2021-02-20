@@ -113,7 +113,7 @@
                   <span class="panel-icon">
                     <i class="fas fa-book" aria-hidden="true"></i>
                   </span>
-                  古文単語 Comming soon
+                  古文単語   
                 </a>
                 <a class="panel-block">
                   <span class="panel-icon">
