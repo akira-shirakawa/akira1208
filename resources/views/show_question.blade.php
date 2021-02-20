@@ -47,7 +47,7 @@
         <div class="column is-half">
             <article class="panel is-link">
                 <p class="panel-heading">
-                  英語
+                  {{$message2}} 
                 </p>
                 @auth
                 @foreach ($message as $key=>$message)

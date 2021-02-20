@@ -227,8 +227,13 @@ var p = JSON.parse('<?php echo $php_json; ?>');
    voices.forEach(function(v, i){
         //イタリア人風
         if(v.name == 'Google US English' || v.name =="Karen") u.voice = v;
-    });    
-   speechSynthesis.speak(u);        
+    });
+    let judge = aryQuiz[quiz_cnt]['category']; 
+  
+  
+    if(judge == 1){
+   speechSynthesis.speak(u); 
+   };
         //正解の回答を取得する
         var success = aryQuiz[quiz_cnt]['answer'][0];
           corr.push(success); 

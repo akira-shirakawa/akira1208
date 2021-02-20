@@ -49,7 +49,7 @@
            <article class="panel is-success">
                 <p class="panel-heading">
                  {{$key}}
-                </p>
+                </p> 
                
                 <div class="panel-block is-flex-wrap-wrap">
                     @foreach($message as $message)

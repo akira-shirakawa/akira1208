@@ -109,23 +109,23 @@
                   </span>
                   英語<span class="tag is-danger">New</span>
                 </a>
-                <a class="panel-block">
+                <a class="panel-block" href="question/2">
                   <span class="panel-icon">
                     <i class="fas fa-book" aria-hidden="true"></i>
                   </span>
-                  数学 Comming soon
+                  古文単語 Comming soon
                 </a>
                 <a class="panel-block">
                   <span class="panel-icon">
                     <i class="fas fa-globe-asia"></i>
                   </span>
-                  地理 Comming Soon
+                  地歴公民 Comming Soon 
                 </a>
                 <a class="panel-block">
                   <span class="panel-icon">
                     <i class="fas fa-book" aria-hidden="true"></i>
                   </span>
-                  理科 Comming soon
+                  生物基礎・化学基礎 Comming soon
                 </a>
               </article>
             <article class="panel is-primary">

@@ -5,7 +5,15 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 class Question extends Model
-{
+{  protected $fillable = [
+   'question',
+   'image',
+   'option1',
+   'option2',
+   'option3',
+   'option4', 
+   'category',
+   'title'];
    public static function getUniqueArray($array, $column)
    {   
       $tmp = []; 
@@ -17,7 +25,14 @@ class Question extends Model
          }   
       }   
       return $uniqueArray;    
-   }   
+   } 
+   public static function return_sub($id){
+      if($id == 1 ){
+         return '英語';
+      }else{
+         return '古文単語';
+      }
+   }
    
    public static function auto_fill($data,$count){
       $result =$count;
