@@ -19,7 +19,15 @@
  <meta name="twitter:card" content="summary_large_image" />
  <meta name="twitter:site" content="@@2tgtPb958VVgpRp" /> 
 <meta property="og:image" content="https://akira32310901.s3.amazonaws.com/public/group6.png" />
-    
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TN03MTYVLP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-TN03MTYVLP');
+</script>    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
