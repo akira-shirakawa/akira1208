@@ -90,7 +90,7 @@
                 @auth
                <div class="title">課題</div>
                @endauth 
-               {{$message->homework}}
+               {!! nl2br($message->homework) !!}
             @switch($message2->distinct_homework(Auth::id(),$message->id))
                @case('再提出')
              
