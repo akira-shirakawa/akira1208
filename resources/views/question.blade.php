@@ -117,6 +117,15 @@ var p = JSON.parse('<?php echo $php_json; ?>');
     .hide{
         display:none;
     }
+    .pre{
+        font-size:1.5rem;
+        border:solid 2px black;
+    }
+    
+   .twi{
+       font-size:2.2rem;
+       border:solid 3px pink; 
+   }
 </style>
    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js?ver=1.12.4'></script>
  <script>
@@ -263,7 +272,9 @@ var p = JSON.parse('<?php echo $php_json; ?>');
         }
         text += '<br><input type="button"    value="もう一度挑戦する" class="button quiz_restart p-10">';
         text += '<br><a href="../1" class="button">一覧に戻る</a>';
-        text += ' <a href="https://twitter.com/intent/tweet?text=https://akira-learning.com"><i class="fab fa-twitter-square"></i></a>';
+         text += '<div class="pre">ツイートして偏差値１０アップチェックシートをゲットしよう'; 
+        text += ' <br><a class="twi" href="https://twitter.com/intent/tweet?text=https://akira-learning.com">ツイートする<i class="fab fa-twitter-square"></i></a></div>'; 
+       
         text += (show_result(corr,my_select,quiz_cash)); 
         corr = [];
         my_select =[];

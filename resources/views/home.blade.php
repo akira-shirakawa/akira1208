@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>あきらラーニング</title>　
-    <meta content="無料で共通一次試験対策ができるサイト" name="description">
+    <meta content="無料で大学入試、共通一次試験対策ができるサイト、単語アプリとしてもつかえる！" name="description">
 <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/ fb# website: http://ogp.me/ns/ website#">
  
 <meta property="og:url" content="https://akira-learning.com" />
@@ -81,6 +81,9 @@
       </section>     
       <div class="columns">
         <div class="column ">
+            @guest
+            <img src="https://akira32310901.s3.amazonaws.com/public/%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97+9.jpg" alt="高速基礎マスター" width="100%" height="auto">
+            @endguest
           @auth
             <article class="message is-link">
                 <div class="message-header">
@@ -130,7 +133,7 @@
               </article>
             <article class="panel is-primary">
                 <p class="panel-heading">
-                 学習 <i class="fas fa-book" aria-hidden="true"></i>
+                 学習(動画) <i class="fas fa-book" aria-hidden="true"></i>
                 </p>
                 
                
@@ -248,7 +251,7 @@
                 <span class="icon has-text-success">
                   <i class="fab fa-line is-size-3"></i> 
                 </span>                  
-                <a href="https://lin.ee/ArBZpHL">line at で相談しませんか？</a> 
+                <a href="https://lin.ee/ArBZpHL">line at で相談しませんか？(無料)</a> 
                             
                 </div>                 
                 </div>
@@ -265,7 +268,7 @@
   <article class="media">
     <div class="media-left">
       <figure class="image is-64x64">
-        <img src="{{$key->image ?: "https://bulma.io/images/placeholders/128x128.png"}}" alt="Image">
+        <img src="{{$key->image ?: "https://auctions.afimg.jp/item_data/image/20121116/yahoo/b/b141197231.1.jpg"}}" alt="Image"> 
       </figure>
     </div>
     <div class="media-content">
