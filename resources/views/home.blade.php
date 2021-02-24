@@ -68,11 +68,11 @@
                 </form>     
         </div>
       </nav>
-       <section class="hero is-medium mb-1" id="hero-target" style="background:url(https://akira32310901.s3.amazonaws.com/public/new_jk.jpg) center no-repeat;background-size: cover;"> 
+       <section class="hero is-medium mb-1" id="hero-target" style="background:url(https://akira32310901.s3.amazonaws.com/public/new_jk2.jpg) center no-repeat;background-size: cover;"> 
          
         <div class="hero-body">
           <p class="title ">
-            <h1 class="title">あきらラーニング</h1>
+            <h1 class="title" style="margin-right:24px">あきらラーニング</h1>
           </p>
           <p class="subtitle  ">
              Akira lerningVer1.0  
@@ -243,7 +243,7 @@
         </div>
         <div class="column">
             <article class="message">
-                <div class="message-header">
+                <div class="message-header has-background-primary"> 
                   <p>News</p>
                 </div>
                 <div class="message-body">
@@ -257,7 +257,7 @@
                 </div>
               </article>
               <article class="message">
-                <div class="message-header">
+                <div class="message-header has-background-primary">
                   <p>注目</p>
                   <button class="delete" aria-label="delete"></button>
                 </div>
@@ -288,12 +288,17 @@
               </article>
         </div>
       </div>
-      <footer class="footer">
-        <div class="content has-text-centered">
+      <div class="radius">
+          <div class="radius-child">
+              
+          </div>
+      </div>
+      <footer class="footer has-background-primary">  
+        <div class="content has-text-centered has-text-white-bis">
           <p>
             <strong>Bulma</strong> by <a href="https://jgthms.com">Jeremy Thomas</a>. The source code is licensed
             <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
-            is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+            is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.(ブルマを使いました)
           </p>
         </div>
       </footer>
@@ -304,6 +309,29 @@
   @media(max-width:400px){
    
 
+  }
+  .radius{
+      position:relative;
+      height:100px; 
+  }
+  .radius-child{
+    position: absolute;
+    width: 700px;
+    height: 350px;
+    background: #2ed461;
+    border-radius: 350px 350px 0 0;
+    top: -148px;
+    left: -101px;
+    z-index: -1;
+  }
+  @media(max-width:600px){
+      .radius-child{
+     width: 400px;
+    height: 200px;
+    top:0; 
+   
+    border-radius: 200px 200px 0 0;
+      }
   }
      
            .box2 {
