@@ -68,7 +68,7 @@
                 </form>     
         </div>
       </nav>
-       <section class="hero is-medium mb-1" style="background:url(https://akira32310901.s3.amazonaws.com/public/%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97+9.png) center">
+       <section class="hero is-medium mb-1" id="hero-target" style="background:url(https://akira32310901.s3.amazonaws.com/public/new_jk.jpg) center no-repeat;background-size: cover;"> 
          
         <div class="hero-body">
           <p class="title ">
@@ -303,11 +303,9 @@
   }
   @media(max-width:400px){
    
-     .hero{
-    background:url(https://akira32310901.s3.amazonaws.com/public/%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97+4.png) center;
+
   }
-  }
- 
+     
            .box2 {
     width: 35px;
     padding-top: 35px;     
