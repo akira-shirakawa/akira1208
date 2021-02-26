@@ -73,18 +73,16 @@ class HomeworkController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-{               $filename = $request->file('image')->getClientOriginalName();
-                $path = $request->file('image')->storeAs('public', $filename);
-                $contents = Storage::get('public/'.$filename);
-                $pa=Storage::disk('s3')->put($filename, $contents, 'public'); // Ｓ３にアップ
-                $image= Storage::disk('s3')->url($filename);
-                
-                                   
-               $message = new Homework;
-                $message->user_id =$request->user_id;
-                $message->article_id =$request->article_id;
-               $message->image=$image;
-                $message->save();
+{           $filename = $request->file('image')->getClientOriginalName();
+            $path = $request->file('image')->storeAs('public', $filename);
+            $contents = Storage::get('public/'.$filename);
+            $pa=Storage::disk('s3')->put($filename, $contents, 'public'); // Ｓ３にアップ
+            $image= Storage::disk('s3')->url($filename);
+            $message = new Homework;
+            $message->user_id =$request->user_id;
+            $message->article_id =$request->article_id;
+            $message->image=$image;
+            $message->save();
                                   
            return back();
     }
@@ -99,22 +97,22 @@ class HomeworkController extends Controller
      */
     public function edit(Request $request)
     {
-               $filename = $request->file('image')->getClientOriginalName();
-                $path = $request->file('image')->storeAs('public', $filename);
-                $contents = Storage::get('public/'.$filename);
-                $pa=Storage::disk('s3')->put($filename, $contents, 'public'); // Ｓ３にアップ
-                $image= Storage::disk('s3')->url($filename);
-                
-                                   
-              $message =  Homework::where('user_id',$request->user_id)->where('article_id',$request->article_id)->get()->first();
-                $message->user_id =$request->user_id;
-                $message->article_id =$request->article_id;
-              $message->image=$image;
-                $message->save();
-                
-                $message2 = Reply::where('user_id',$request->user_id)->where('article_id',$request->article_id)->get()->first();
-                $message2->statue = 5;
-                $message2->save();
+        $filename = $request->file('image')->getClientOriginalName();
+        $path = $request->file('image')->storeAs('public', $filename);
+        $contents = Storage::get('public/'.$filename);
+        $pa=Storage::disk('s3')->put($filename, $contents, 'public'); // Ｓ３にアップ
+        $image= Storage::disk('s3')->url($filename);
+        
+                           
+        $message =  Homework::where('user_id',$request->user_id)->where('article_id',$request->article_id)->get()->first();
+        $message->user_id =$request->user_id;
+        $message->article_id =$request->article_id;
+        $message->image=$image;
+        $message->save();
+        
+        $message2 = Reply::where('user_id',$request->user_id)->where('article_id',$request->article_id)->get()->first();
+        $message2->statue = 5;
+        $message2->save();
            return back();
     }
 

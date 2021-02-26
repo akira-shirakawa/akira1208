@@ -93,7 +93,7 @@ class ArticleController extends Controller
          $tmp[] =$tmp2;
         }
         $message = $message2->group_by($tmp,'category');
-        return view('show_index',['message'=>$message,'message3'=>$message3]);
+        return view('show_index',['message'=>$message,'message3'=>$message3,'id'=>$id]);
         
         
        
