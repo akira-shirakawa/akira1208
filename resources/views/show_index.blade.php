@@ -100,16 +100,16 @@
   <p class="panel-heading">
     展開と因数分解
   </p>
-  <a class="panel-block ">
+  <a class="panel-block " href="https://www.youtube.com/watch?v=WeicaivQ7DU"> 
     $acx^2+(ad+bc)x+bd=(ax+b)(cx+d)$   
   </a>
-  <a class="panel-block ">
+  <a class="panel-block " href="https://www.youtube.com/watch?v=T57HFX1u2UU">
     $a^3+3a^2b+3ab^2+b^3=(a+b)^3$  
   </a>
-  <a class="panel-block ">
+  <a class="panel-block " href="https://www.youtube.com/watch?v=fLKbmGrfEL8">
     $a^2+b^2+c^2+2ab+2bc+2ac=(a+b+c)^2$ 
   </a>
-  <a class="panel-block ">
+  <a class="panel-block " href="https://www.youtube.com/watch?v=3kMrKdn-Wh4">
     $a^3+b^3+c^3-3abc=(a+b+c)(a^2+b^2+c^2-ab-ac-bc)$ 
   </a>
 
@@ -118,7 +118,7 @@
   <p class="panel-heading">
     2次関数2次方程式
   </p>
-  <a class="panel-block ">
+  <a class="panel-block " href="https://www.youtube.com/watch?v=Ri-pC6mOIUQ&t=106s">
     判別式$D=b^2-4ac$    
   </a>
  
@@ -128,25 +128,25 @@
   <p class="panel-heading">
     図形と計量
   </p>
-  <a class="panel-block ">
+  <a class="panel-block " href="https://www.youtube.com/watch?v=3lobZKOa6OQ">
     $sin^2\theta+cos^2\theta=1$ 
   </a>
-  <a class="panel-block ">
+  <a class="panel-block " href="https://www.youtube.com/watch?v=3lobZKOa6OQ">
     $tan\theta=\frac{sin\theta}{cos\theta}$ 
   </a>
-  <a class="panel-block ">
+  <a class="panel-block " href="https://www.youtube.com/watch?v=3lobZKOa6OQ">
     $tan^2\theta+1=\frac{1}{cos^2\theta}$ 
   </a>
-  <a class="panel-block ">
+  <a class="panel-block " href="https://www.youtube.com/watch?v=gGInbcrcO6I">
     $\frac{sinA}{a}=\frac{sinB}{b}=\frac{sinC}{C}$ 
   </a>
-  <a class="panel-block ">
+  <a class="panel-block " href="https://www.youtube.com/watch?v=FoS703uizqE">
     $a^2=b^2+c^2-2bccosA$
   </a>
-  <a class="panel-block ">
+  <a class="panel-block " href="https://www.youtube.com/watch?v=FoS703uizqE">
     $cosA=\frac{b^2+c^2-a^2}{2bc}$ 
   </a>
-  <a class="panel-block ">
+  <a class="panel-block " href="https://www.youtube.com/watch?v=6MBwzRYBcm4">
    $S=\frac{1}{2}bcsinA$
   </a>
   
@@ -163,7 +163,7 @@
   <p class="panel-heading">
     集合と確率
   </p>
-  <a class="panel-block ">
+  <a class="panel-block " href="https://www.youtube.com/watch?v=ZNleTg25fl0">
     $A\cup B = A+B-A\cap B $  
   </a>
  
@@ -173,13 +173,13 @@
   <p class="panel-heading">
     図形
   </p>
-  <a class="panel-block ">
+  <a class="panel-block " href="https://www.youtube.com/watch?v=VgVTQawMvdI">
     $PA*PB=PC*PD$  
   </a>
-  <a class="panel-block "> 
+  <a class="panel-block " href="https://www.youtube.com/watch?v=VgVTQawMvdI"> 
     $PA*PB = PT^2$
   </a>
-  <a class="panel-block ">
+  <a class="panel-block " href="https://www.youtube.com/watch?v=Ive2qi-fajE">
     $\frac{AR}{RB} \frac{BO}{OQ} \frac{CQ}{QA}$
   </a>
  
@@ -197,19 +197,19 @@
   <p class="panel-heading">
     図形と方程式
   </p>
-  <a class="panel-block ">
+  <a class="panel-block " href="https://www.youtube.com/watch?v=8mFD24tuNFQ">
     $a+b > 2\sqrt{ab} $ 
   </a>
-  <a class="panel-block ">
+  <a class="panel-block " href="https://www.youtube.com/watch?v=kNENMk5i0K0&list=PLKRhhk0lEyzOrTRSwD7dibI12YMBr5e8B&index=2">
     $\sqrt{(x_1-x_2)^2+(y_1-y_2)^2}$ 
   </a>
-  <a class="panel-block ">
+  <a class="panel-block " href="https://www.youtube.com/watch?v=prDZJuLMMOI">
     $d = \frac{|ax+by+c|}{\sqrt{a^2+b^2}} $ 
   </a>
-  <a class="panel-block ">
+  <a class="panel-block " href="https://www.youtube.com/watch?v=CMM634iLkXY&list=PLKRhhk0lEyzOrTRSwD7dibI12YMBr5e8B&index=3">
     $(\frac{nx_1+mx_2}{m+n},\frac{ny_1+my_2}{m+n})$ 
   </a>
-  <a class="panel-block ">
+  <a class="panel-block " href="https://www.youtube.com/watch?v=8bja00emV4Y&list=PLKRhhk0lEyzOrTRSwD7dibI12YMBr5e8B&index=18">
     $(x_1-a)(x-a)+(y_1-b)(y-b) =r^2$ 
   </a>
  
@@ -219,10 +219,10 @@
   <p class="panel-heading">
     三角関数
   </p>
-  <a class="panel-block ">
+  <a class="panel-block " href="https://www.youtube.com/watch?v=hPF158zkFD8">
     $sin(\alpha+\beta) = cos\alpha sin\beta+cos\beta sin\alpha $ 
   </a>
-  <a class="panel-block ">
+  <a class="panel-block " href="https://www.youtube.com/watch?v=hPF158zkFD8">
     $cos(\alpha+\beta) = cos\alpha cos\beta - sin\alpha cos\beta$ 
   </a>
  
@@ -239,19 +239,19 @@
   <p class="panel-heading">
     ベクトル
   </p>
-  <a class="panel-block ">
+  <a class="panel-block " href="https://www.youtube.com/watch?v=qg93ShhI1b4">
     ベクトルの垂直条件$\vec{a} \bullet \vec{b} = 0$
   </a>
-  <a class="panel-block ">
+  <a class="panel-block " href="https://www.youtube.com/watch?v=QODrC2daKgc">
     $\vec{AB} = t \vec{AC}$ 
   </a>
-  <a class="panel-block ">
+  <a class="panel-block " href="https://www.youtube.com/watch?v=JnyYEM5k4W8">
     $cos\theta= \frac{\vec{a}\bullet\vec{b}}{|\vec{a}||\vec{b}|} $ 
   </a>
-  <a class="panel-block ">
+  <a class="panel-block " href="https://www.youtube.com/watch?v=yPR-TqRh4wE">
     $P= (1-t)\vec{a} + t\vec{b}$ 
   </a>
-  <a class="panel-block ">
+  <a class="panel-block " href="https://www.youtube.com/watch?v=yPR-TqRh4wE">
    $\vec{AP} =s \vec{AB}+t\vec{AC}$ 
   </a>
  
@@ -260,25 +260,25 @@
   <p class="panel-heading">
     数列
   </p>
-  <a class="panel-block ">
+  <a class="panel-block " href="https://www.youtube.com/watch?v=cFV5G104n3w">
     $a_n = a+(n-1)d$ 
   </a>
-  <a class="panel-block ">
+  <a class="panel-block " href="https://www.youtube.com/watch?v=cFV5G104n3w">
    $S_n = \frac{n(a_1 + a_n)}{2}$ 
   </a>
-  <a class="panel-block ">
+  <a class="panel-block " href="https://www.youtube.com/watch?v=yLjo5EHQ2iM">
    $a_n = ar^{n-1}$
   </a>
-  <a class="panel-block ">
+  <a class="panel-block " href="https://www.youtube.com/watch?v=yLjo5EHQ2iM">
    $S_n = \frac{a(1-r^n)}{1-r}$  
   </a>
-  <a class="panel-block ">
+  <a class="panel-block " href="https://www.youtube.com/watch?v=AYpLK2I-6Pk">
   $\sum_{k=1}^n 1= n$ 
   </a>
-  <a class="panel-block ">
+  <a class="panel-block " href="https://www.youtube.com/watch?v=AYpLK2I-6Pk">
  $\sum_{k=1}^n k = \frac{1}{2}n(n+1)$  
   </a>
-  <a class="panel-block ">
+  <a class="panel-block " href="https://www.youtube.com/watch?v=AYpLK2I-6Pk">
  $\sum_{k=1}^n  k^2 = n(n+1)(2n+1)$ 
   </a>
  
