@@ -21,9 +21,9 @@ Laravel 5.5
 
 Mysql
 
-Apatcth
 
-Css フレームワーク　・・・bluma
+
+CSS フレームワーク　・・・bluma
 
 S3
 
