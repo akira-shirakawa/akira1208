@@ -291,7 +291,7 @@
                         <span class="icon has-text-success">
                             <i class="fab fa-line is-size-3"></i>
                         </span>
-                        <a href="https://lin.ee/ArBZpHL">line at で相談しませんか？(無料)</a>
+                        <a href="https://lin.ee/ArBZpHL">無料でわからないとこをを質問！！</a> 
 
                     </div>
                 </div>
