@@ -59,7 +59,7 @@
             @if($id == 0) 
             <article class="panel is-danger">
               <p class="panel-heading">
-                公式集 
+                公式から動画を検索  
               </p>
             
               <div class="panel-block">
