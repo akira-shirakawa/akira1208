@@ -139,6 +139,10 @@ class ComposerStaticInitf9ad002bcd427cda3dfd18a60e11e582
             'Cron\\' => 5,
             'Collective\\Html\\' => 16,
         ),
+        'B' => 
+        array (
+            'BeyondCode\\ErdGenerator\\' => 24,
+        ),
         'A' => 
         array (
             'Aws\\' => 4,
@@ -393,6 +397,10 @@ class ComposerStaticInitf9ad002bcd427cda3dfd18a60e11e582
         array (
             0 => __DIR__ . '/..' . '/laravelcollective/html/src',
         ),
+        'BeyondCode\\ErdGenerator\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/beyondcode/laravel-er-diagram-generator/src',
+        ),
         'Aws\\' => 
         array (
             0 => __DIR__ . '/..' . '/aws/aws-sdk-php/src',
@@ -408,6 +416,14 @@ class ComposerStaticInitf9ad002bcd427cda3dfd18a60e11e582
     );
 
     public static $prefixesPsr0 = array (
+        'p' => 
+        array (
+            'phpDocumentor' => 
+            array (
+                0 => __DIR__ . '/..' . '/phpdocumentor/graphviz/src',
+                1 => __DIR__ . '/..' . '/phpdocumentor/graphviz/tests/unit',
+            ),
+        ),
         'U' => 
         array (
             'UpdateHelper\\' => 
@@ -1235,6 +1251,14 @@ class ComposerStaticInitf9ad002bcd427cda3dfd18a60e11e582
         'Aws\\kendra\\kendraClient' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/kendra/kendraClient.php',
         'Aws\\signer\\Exception\\signerException' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/signer/Exception/signerException.php',
         'Aws\\signer\\signerClient' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/signer/signerClient.php',
+        'BeyondCode\\ErdGenerator\\Edge' => __DIR__ . '/..' . '/beyondcode/laravel-er-diagram-generator/src/Edge.php',
+        'BeyondCode\\ErdGenerator\\ErdGeneratorServiceProvider' => __DIR__ . '/..' . '/beyondcode/laravel-er-diagram-generator/src/ErdGeneratorServiceProvider.php',
+        'BeyondCode\\ErdGenerator\\GenerateDiagramCommand' => __DIR__ . '/..' . '/beyondcode/laravel-er-diagram-generator/src/GenerateDiagramCommand.php',
+        'BeyondCode\\ErdGenerator\\GraphBuilder' => __DIR__ . '/..' . '/beyondcode/laravel-er-diagram-generator/src/GraphBuilder.php',
+        'BeyondCode\\ErdGenerator\\Model' => __DIR__ . '/..' . '/beyondcode/laravel-er-diagram-generator/src/Model.php',
+        'BeyondCode\\ErdGenerator\\ModelFinder' => __DIR__ . '/..' . '/beyondcode/laravel-er-diagram-generator/src/ModelFinder.php',
+        'BeyondCode\\ErdGenerator\\ModelRelation' => __DIR__ . '/..' . '/beyondcode/laravel-er-diagram-generator/src/ModelRelation.php',
+        'BeyondCode\\ErdGenerator\\RelationFinder' => __DIR__ . '/..' . '/beyondcode/laravel-er-diagram-generator/src/RelationFinder.php',
         'Carbon\\Carbon' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Carbon.php',
         'Carbon\\CarbonInterval' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonInterval.php',
         'Carbon\\CarbonPeriod' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonPeriod.php',
@@ -5022,6 +5046,11 @@ class ComposerStaticInitf9ad002bcd427cda3dfd18a60e11e582
         'Whoops\\Util\\SystemFacade' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/SystemFacade.php',
         'Whoops\\Util\\TemplateHelper' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/TemplateHelper.php',
         'XdgBaseDir\\Xdg' => __DIR__ . '/..' . '/dnoegel/php-xdg-base-dir/src/Xdg.php',
+        'phpDocumentor\\GraphViz\\Attribute' => __DIR__ . '/..' . '/phpdocumentor/graphviz/src/phpDocumentor/GraphViz/Attribute.php',
+        'phpDocumentor\\GraphViz\\Edge' => __DIR__ . '/..' . '/phpdocumentor/graphviz/src/phpDocumentor/GraphViz/Edge.php',
+        'phpDocumentor\\GraphViz\\Exception' => __DIR__ . '/..' . '/phpdocumentor/graphviz/src/phpDocumentor/GraphViz/Exception.php',
+        'phpDocumentor\\GraphViz\\Graph' => __DIR__ . '/..' . '/phpdocumentor/graphviz/src/phpDocumentor/GraphViz/Graph.php',
+        'phpDocumentor\\GraphViz\\Node' => __DIR__ . '/..' . '/phpdocumentor/graphviz/src/phpDocumentor/GraphViz/Node.php',
         'phpDocumentor\\Reflection\\DocBlock' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock.php',
         'phpDocumentor\\Reflection\\DocBlockFactory' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlockFactory.php',
         'phpDocumentor\\Reflection\\DocBlockFactoryInterface' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlockFactoryInterface.php',

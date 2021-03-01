@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => 'bc3cf800c36ba072d321e7b9fbcc89e7bb828c6c',
+    'reference' => 'ac9b6f7c57ae4d8f318bbff8476293965b59e1eb',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -19,6 +19,15 @@
       array (
       ),
       'reference' => '439a161e46895cd1f7b93b4c0295f95d6a17385e',
+    ),
+    'beyondcode/laravel-er-diagram-generator' => 
+    array (
+      'pretty_version' => '1.5.0',
+      'version' => '1.5.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '2578ea947f1b9030221a30803385e4b4758ca323',
     ),
     'cordoval/hamcrest-php' => 
     array (
@@ -424,7 +433,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => 'bc3cf800c36ba072d321e7b9fbcc89e7bb828c6c',
+      'reference' => 'ac9b6f7c57ae4d8f318bbff8476293965b59e1eb',
     ),
     'laravel/tinker' => 
     array (
@@ -564,6 +573,15 @@
       array (
       ),
       'reference' => 'a70c0ced4be299a63d32fa96d9281d03e94041df',
+    ),
+    'phpdocumentor/graphviz' => 
+    array (
+      'pretty_version' => '1.0.4',
+      'version' => '1.0.4.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'a906a90a9f230535f25ea31caf81b2323956283f',
     ),
     'phpdocumentor/reflection-common' => 
     array (
