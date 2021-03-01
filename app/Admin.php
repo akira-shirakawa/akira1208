@@ -26,4 +26,10 @@ class Admin extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    public function admin_has(){
+        return $this->hasmany('App\Homework');
+    }
+    public function admin_article_has(){
+        return $this->hasmany('App\Article');
+    }
 }

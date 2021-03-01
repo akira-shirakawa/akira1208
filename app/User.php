@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','image'
     ];
 
     /**
@@ -26,4 +26,31 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    
+    public function user_homework_has(){
+        return $this->hasmany('App\Homework');
+    }
+ public function questions(){
+    return $this->belongsToMany('App\Question', 'logs');     
+ } 
+ 
+ public static function get_title ($value){
+     $result = [];
+     foreach($value as $key){
+         $result[] = $key->title;
+     }
+     $result = array_count_values($result);
+    return $result; 
+ }
+ public static function get_rate($array1,$array2){
+     $result =[];
+     foreach($array1 as $key=>$value){
+        $tmp = array_key_exists($key,$array2) ? $array2["$key"] :0.000001;
+       $result["$key"] =  floor(($tmp/$value)*100);   
+        
+     }
+    return $result; 
+ }
+ 
+ 
 }

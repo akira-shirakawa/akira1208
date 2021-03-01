@@ -6,6 +6,8 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request; 
+use Auth; 
 
 class RegisterController extends Controller
 {
@@ -61,11 +63,25 @@ class RegisterController extends Controller
      * @return \App\User
      */
     protected function create(array $data)
-    {
+    {   $value = floor(rand(1,3));
+        $path ='';
+       if($value == 1){
+           $path ='https://cdn2.aprico-media.com/production/imgs/images/000/008/522/original.jpg?1505870291';
+       }elseif($value == 2){
+           $path ='https://ascii.jp/img/2017/04/03/1613161/l/1f488c247261a472.jpg';
+       }else{
+           $path ='https://cdn2.aprico-media.com/production/imgs/images/000/008/522/original.jpg?1505870291';
+       }
+       
+       
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'password' => bcrypt($data['password']),
+            'image' => $path,
+            
+            'password' => bcrypt($data['password']
+           ),
         ]);
     }
+
 }

@@ -18,7 +18,15 @@ Auth::routes();
 | 1) User 認証不要
 |--------------------------------------------------------------------------
 */
-Route::get('/', function () { return redirect('/home'); });
+Route::get('/','LogController@index')->name('home');
+Route::get('/home','LogController@index')->name('home');
+Route::get('/article/{id}','ArticleController@show_index');
+Route::get('/article/show/{id2}','ArticleController@show');
+Route::get('/question/{id}','QuestionController@show_index');
+Route::get('/question/show/{id2}','QuestionController@show');
+Route::get('/user/{id}','HomeController@show');
+Route::post('/memo','PostController@store');
+
  
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +34,11 @@ Route::get('/', function () { return redirect('/home'); });
 |--------------------------------------------------------------------------
 */
 Route::group(['middleware' => 'auth:user'], function() {
-    Route::get('/home', 'HomeController@index')->name('home');
+  
+    Route::post('/homework','HomeworkController@store');
+    Route::post('/homework_edit','HomeworkController@edit');
+    Route::get('/homework/{id}','ReplyController@show');
+    route::post('/user','LogController@edit');  
 });
  
 /*
@@ -48,4 +60,23 @@ Route::group(['prefix' => 'admin'], function() {
 Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
     Route::post('logout',   'Admin\LoginController@logout')->name('admin.logout');
     Route::get('home',      'Admin\HomeController@index')->name('admin.home');
+    Route::get('make','Admin\HomeController@create');
+    Route::get('homework','HomeworkController@index');
+    Route::get('question','QuestionController@create');
+    Route::get('message','NotificationController@index');
+    Route::get('article','ArticleController@index');
+    
+    
+    
 });
+Route::post('csv','QuestionController@store_csv');
+Route::post('make','ArticleController@store');
+Route::post('reply','ReplyController@store');
+Route::post('reply_edit','ReplyController@edit');
+Route::post('log','LogController@store');
+Route::post('notification','NotificationController@store');
+Route::post('message','NotificationController@destroy');
+Route::post('article','ArticleController@destroy');
+
+
+
