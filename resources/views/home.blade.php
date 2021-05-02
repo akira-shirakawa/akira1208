@@ -172,7 +172,7 @@
             <ul class="tab clearfix">
                 <li class="active">総合</li>
                 <li>Dayly</li>
-                <li>Month</li>
+                <li>継続</li>
             </ul>
             <div class="card">
                 <div class="card-content">
@@ -264,11 +264,11 @@
                                         <td>
                                             <div class="box2">
                                                 <img
-                                                    src="{{$user->get_user($key['user_id'])->image  ?? "https://bulma.io/images/placeholders/128x128.png"}}">
+                                                    src="{{$user->get_user($key[0])->image  ?? "https://bulma.io/images/placeholders/128x128.png"}}">
                                             </div>
                                         </td>
-                                        <td>{{$user->get_user($key['user_id'])->name}} </td>
-                                        <td>{{$key['point']}}point</td>
+                                        <td>{{$user->get_user($key[0])->name}} </td>
+                                        <td>{{$key[1]}}日</td>
                                     </tr>
                                     @endforeach
                                 </table>

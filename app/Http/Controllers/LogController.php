@@ -26,21 +26,59 @@ class LogController extends Controller
         $month = $carbon->subMonths(1)->timestamp;
        $day= date("Y-m-d H:i:s",$day);
        $month = date("Y-m-d H:i:s",$month); 
-        
+        $going_array=[];
         $notification = Notification::all();
         $notification = Notification::do_notification_public($notification);
         $record= Log::select(DB::raw('count(*) as point,user_id'))->where('created_at','>',$day)->groupBy('user_id')->limit(5)->get();
         $record2 = Reply::select(DB::raw('count(*) as point,user_id'))->where('created_at','>',$day)->groupBy('user_id')->limit(5)->get();
         $month_record= Log::select(DB::raw('count(*) as point,user_id'))->where('created_at','>',$month)->groupBy('user_id')->limit(5)->get();
         $month_record2 =Reply::select(DB::raw('count(*) as point,user_id'))->where('created_at','>',$month)->groupBy('user_id')->limit(5)->get();
-        
+        $going = Log::where('created_at','>',$day)->distinct()->select('user_id')->get(['user_id']);
+        foreach($going as $key){
+            $tmp = [];
+            $tmp[]= $key->user_id;
+            $tmp[] = 1;
+            $tmp[] = 0;
+            $going_array[] = $tmp;
+            
+        }
+        // dd($going_array); 
+      // dd(Carbon::now()->subDays(1)->format('Y-m-d h:i:s'));
+        $count=1;
+         
+        $flag=1;
+        while($flag ==1){
+             $flag=0;
+        foreach($going_array as &$key){
+           
+            if($key[2] == 0){
+            $tmp = Log::where('user_id',$key[0])->where('created_at','>',Carbon::now()->subDays($count+1)->format('Y-m-d h:i:s'))->where('created_at','<', Carbon::now()->subDays($count)->format('Y-m-d h:i:s'))->get();
+         
+            if(!empty($tmp[0]->user_id)){ 
+                $key[1]=$count+1;
+                $flag=1;
+            }else{
+                $key[2] = 1;
+            }
+        }
+        }
+        $count++;
+        unset($key);
+        }
+        $tmp_array=[];
+        foreach($going_array as $key){
+           $tmp_array[] = $key[1]; 
+        }
+         array_multisort($tmp_array, SORT_DESC, $going_array);
+   
+      
         Log::tentimes($record2);
         Log::tentimes($month_record2);
         $dayly=Log::marge($record,$record2);
         $mothly=Log::marge($month_record,$month_record2);
         $message = User::orderBy('point','dese')->limit(5)->get();
         $user = new LogController;
-       return view('home',['message'=>$message,'day'=>$dayly,'month'=>$mothly,'user'=>$user,'notification'=>$notification]);
+       return view('home',['message'=>$message,'day'=>$dayly,'month'=>$going_array,'user'=>$user,'notification'=>$notification]);
         
     }
     
