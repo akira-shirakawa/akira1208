@@ -43,9 +43,9 @@
 <body>
    
     <div class="columns is-mobile">
-        <div class="column is-half ">
+        <div class="column is-half "> 
          <p>
-          $\sqrt2$ 
+  <button class="button bold">B</button><button class="button h2">H2</button><button class="button a">A</button><button class="button wp2">wrap</button> 
          </p>
             <form action="/make" method="post">
               {{ csrf_field() }}
@@ -59,23 +59,13 @@
                     <option value="3">地理</option>
                   </select>
                 </div>
-                <textarea id="inputform" class="input-area textarea" name="content" type="textarea" required>
+                <textarea id="inputform" class="input-area textarea" name="content" rows="30"   type="textarea" required>
 
                 </textarea>
-                <textarea id="inputform" class="input-area textarea" name="homework" type="textarea" required>
-
-                </textarea>
-                
-                <div class="control">
-                    <label class="radio">
-                      <input type="radio" name="homework_flag" value="1">
-                      Yes
-                    </label>
-                    <label class="radio">
-                      <input type="radio" name="homework_flag" value="0">
-                      No
-                    </label>
-                  </div>
+ 
+                <input type="radio" name="homework_flag" value="0">公開
+                <input type="radio" name="homework_flag" value="1">非公開（下書きとして保存）
+              　
                   <input type="submit" class="button is-link">
                     <input type="hidden" value="{{ Auth::id() }}" name="admin_id">
             </form>
@@ -88,6 +78,10 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="{{ asset('js/admin/make.js') }}"></script>
+ <script>
+
+
+</script>
 </body>
 
 </html>

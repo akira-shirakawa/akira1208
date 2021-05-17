@@ -23,7 +23,7 @@
                                  <form action="../article" method="post">
                                      {{csrf_field()}}
                                      <input type="hidden" value="{{$message->id}}" name="id">
-                                     <input type="submit" class="button" value="送信">
+                                     <input type="submit" class="button" value="削除"> 
                                  </form>
                              </td>
                          </tr>

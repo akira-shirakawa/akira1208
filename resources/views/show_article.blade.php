@@ -33,9 +33,7 @@
   <img src="{{Auth::user()->image ?? "https://bulma.io/images/placeholders/128x128.png"}}">
   </div>
         </a>
-             <a class="navbar-item" href="../../homework/{{Auth::id()}}"> 
-              課題
-            </a> 
+            
                 <a class="button is-primary" href="{{ route('logout') }}"
  
                     onclick="event.preventDefault();
@@ -79,8 +77,18 @@
  <div class="notification is-success hide js-target4">
 正常に保存されました
 </div>         
-            <h2 class="title has-text-centered">{{$message->title}}</h2>
-           {!! nl2br(($message->content)) !!}
+    <section class="hero is-medium mb-1" id="hero-target"
+        style="background:url(https://i.gzn.jp/img/2014/03/06/children-play-math/00-top.png) center no-repeat;background-size: cover;">
+
+        <div class="hero-body">
+            <p class="title ">
+                <h1 class="title" style="margin-right:24px;color:white">{{$message->title}}</h1>
+            </p> 
+            <p class="subtitle  ">
+                Akira lerningVer1.0
+            </p> 
+        </div> 
+    </section>         {!! nl2br(($message->content)) !!}　
               <div class="homework">
                 @guest
                 <div class="wrapper is-vcentered">
@@ -88,65 +96,8 @@
                 </div>
                 @endguest
                 @auth
-               <div class="title">課題</div>
                @endauth 
-               {!! nl2br($message->homework) !!}
-            @switch($message2->distinct_homework(Auth::id(),$message->id))
-               @case('再提出')
-             
-               <form action="../../homework_edit" method="post" enctype="multipart/form-data">
-                                    {{csrf_field()}}
-                      <input type="hidden" name="article_id" value="{{$message->id}}">
-                     
-                        <input type="hidden" value="{{ Auth::id() }}" name="user_id">
-                
-              <div class="file is-danger">
-                <label class="file-label">
-                  <input class="file-input" type="file" name="image" onchange="previewImage(this);"  accept="image/png, image/jpeg, image/jpg" required>  
-                  <span class="file-cta">
-                    <span class="file-icon">
-                      <i class="fas fa-upload"></i>
-                    </span>
-                    <span class="file-label">
-                     再提出
-                    </span>
-                  </span>
-                </label>
-              </div>
-                     <input type="submit" class="button is-link">
-
-              </form>
-              @break
-              @case('未提出')
-                <form action="../../homework" method="post" enctype="multipart/form-data">
-                                    {{csrf_field()}}
-                      <input type="hidden" name="article_id" value="{{$message->id}}">
-                     
-                        <input type="hidden" value="{{ Auth::id() }}" name="user_id">
-                
-              <div class="file is-primary">
-                <label class="file-label">
-                  <input class="file-input" type="file" name="image" onchange="previewImage(this);"  accept="image/png, image/jpeg, image/jpg" required> 
-                  <span class="file-cta">
-                    <span class="file-icon">
-                      <i class="fas fa-upload"></i>
-                    </span>
-                    <span class="file-label">
-                      課題ができ たら写真を撮ってここから送ってね
-                    </span>
-                  </span>
-                </label>
-              </div>
-                     <input type="submit" class="button is-link">
-
-              </form>             
-              @break
-          @case('合格')
-              <button class="is-info button">合格おめでとう</button>
-          @break
-          @default
-              <button class="is-info button">提出済み</button>
-          @endswitch
+ 
            </div>
            <img id="preview" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="max-width:200px;">
         </div>
@@ -245,13 +196,7 @@
        object-fit: cover;
        border-radius: 50%;
 }
-  .title{
-    background:black;
-    color:white; 
-    border-radius:6px 6px 0 0; 
-    padding:10px 0 10px 0; 
-    text-align:center;
-  }
+  
           html{
               background:#eee;
           }

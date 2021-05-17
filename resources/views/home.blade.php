@@ -47,9 +47,7 @@
                     </div>
                 </figure>
             </a>
-            <a class="navbar-item" href="homework/{{Auth::id()}}">
-                課題
-            </a>
+         
             <a class="navbar-item" href="#">
                 {{auth::user()->point}}Pt
             </a>

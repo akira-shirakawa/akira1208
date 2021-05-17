@@ -1,22 +1,48 @@
-function blinkBlue(){
-    var sel = window.getSelection();
-    console.log(sel);
-    if(!sel.rangeCount) return; //範囲選択されている箇所がない場合は何もせず終了
-  
-    var range = sel.getRangeAt(0);
-    var newNode = document.createElement('span');
-    newNode.setAttribute('style', 'background-color: blue;'); //範囲選択箇所の背景を青にする
-    newNode.innerHTML = sel.toString();
-    range.deleteContents();    // 範囲選択箇所を一旦削除
-    range.insertNode(newNode); // 範囲選択箇所の先頭から、修飾したspanを挿入
-  }
-
+let text;
 document.getElementById('inputform').addEventListener('keyup', (e) => {
+  
   var inputTopreview = document.getElementById('inputform').value;
+ 
   document.getElementById('preview').innerHTML = document.getElementById('inputform').value;
   MathJax.Hub.Queue(["Typeset", MathJax.Hub, 'preview']);
 });
 
+$('.textarea').select(function(){
+  var sel = window.getSelection().toString();
+  text=sel;
+}); 
 
+$('.bold').click(function(){
+  var str1 = $('textarea[name="content"]').val();
+ const replacement =' <span style="color: red; background: yellow">'+text+'</span>'; 
+ str1=str1.replace(text,replacement); 
+ $('textarea[name="content"]').val('');
+ $('textarea[name="content"]').val(str1); 
 
-//.value.replace(/</g, "&lt;").replace(/>/g, "&gt;")
+});
+$('.h2').click(function(){
+  var str1 = $('textarea[name="content"]').val();
+ const replacement =' <h2 class="title">'+text+'</h2>';  
+ str1=str1.replace(text,replacement); 
+ $('textarea[name="content"]').val('');
+ $('textarea[name="content"]').val(str1); 
+
+});
+$('.a').click(function(){
+  var str1 = $('textarea[name="content"]').val();
+ const replacement ='<div class="columns"><div class="column is-one-fifth">test</div><div class="column"><div style="border: solid 2px #333;background:#eee;padding:20px;border-radius:4px">'+text+'</div></div></div>';           
+ str1=str1.replace(text,replacement);  
+ $('textarea[name="content"]').val('');
+ $('textarea[name="content"]').val(str1); 
+
+});
+
+$('.wp2').click(function(){ 
+    console.log('hoge'); 
+  var str1 = $('textarea[name="content"]').val();
+ const replacement ='<div style="padding:30px;border :2px solid #f00">'+text+'</div>';      
+ str1=str1.replace(text,replacement);  
+ $('textarea[name="content"]').val('');
+ $('textarea[name="content"]').val(str1); 
+
+});
