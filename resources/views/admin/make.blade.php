@@ -63,10 +63,10 @@
 
                 </textarea>
  
-                <input type="radio" name="homework_flag" value="0">公開
+                <input type="radio" name="homework_flag" value="0" checked="checked">公開
                 <input type="radio" name="homework_flag" value="1">非公開（下書きとして保存）
               　
-                  <input type="submit" class="button is-link">
+                  <input type="submit" class="button is-link"> 
                     <input type="hidden" value="{{ Auth::id() }}" name="admin_id">
             </form>
         </div>
