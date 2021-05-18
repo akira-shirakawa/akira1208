@@ -27,13 +27,13 @@ $('.h2').click(function(){
  $('textarea[name="content"]').val('');
  $('textarea[name="content"]').val(str1); 
 
-});
+}); 
 $('.a').click(function(){
   var str1 = $('textarea[name="content"]').val();
- const replacement ='<div class="columns"><div class="column is-one-fifth">test</div><div class="column"><div style="border: solid 2px #333;background:#eee;padding:20px;border-radius:4px">'+text+'</div></div></div>';           
- str1=str1.replace(text,replacement);  
+ const replacement ='<div class="columns"><div class="column is-2"><img src="http://yellowokapi67.sakura.ne.jp/image/irasutoya_new2.png" width="50px" height="auto"></div><div class="column"><div style="border: solid 2px #333;background:#eee;padding:20px;border-radius:4px">'+text+'</div></div></div>';           
+ str1=str1.replace(text,replacement);   
  $('textarea[name="content"]').val('');
- $('textarea[name="content"]').val(str1); 
+ $('textarea[name="content"]').val(str1);  
 
 });
 

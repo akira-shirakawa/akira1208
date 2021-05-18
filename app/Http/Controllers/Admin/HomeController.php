@@ -34,8 +34,16 @@ class HomeController extends Controller
         $message =new Article;
     
         return view('admin.make',['message'=>$message]);
+    } 
+    public function edit($id){ 
+        $message = Article::find($id);  
+        return view('admin.edit_article',['message'=>$message]);
     }
-    public function homework_index(){
-        
+     public function change(Request $request){ 
+        $message = Article::find($request->id); 
+        $message->content=$request->content;
+        $message->save(); 
+        return back(); 
+         
     }
 }

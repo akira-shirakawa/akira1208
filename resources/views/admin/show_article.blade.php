@@ -26,6 +26,9 @@
                                      <input type="submit" class="button" value="削除"> 
                                  </form>
                              </td>
+                             <td>
+                                 <a href="../admin/edit/{{$message->id}}" class="button" >編集</a>
+                             </td>
                          </tr>
                         @endforeach 
                    </table>

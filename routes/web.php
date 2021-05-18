@@ -59,13 +59,14 @@ Route::group(['prefix' => 'admin'], function() {
 */
 Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
     Route::post('logout',   'Admin\LoginController@logout')->name('admin.logout');
-    Route::get('home',      'Admin\HomeController@index')->name('admin.home');
+    Route::get('home',      'Admin\HomeController@index')->name('admin.home'); 
     Route::get('make','Admin\HomeController@create');
-    Route::get('homework','HomeworkController@index');
-    Route::get('question','QuestionController@create');
+    Route::get('homework','HomeworkController@index'); 
+    Route::get('question','QuestionController@create'); 
     Route::get('message','NotificationController@index');
-    Route::get('article','ArticleController@index');
-    
+    Route::get('article','ArticleController@index'); 
+    Route::get('edit/{id}','Admin\HomeController@edit');
+    Route::post('edit','Admin\HomeController@change'); 
     
     
 });

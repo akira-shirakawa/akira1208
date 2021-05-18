@@ -136,6 +136,7 @@ class HomeworkController extends Controller
      */
     public function destroy(Homework $homework)
     {
-        //
+        // 
     }
+   
 }
