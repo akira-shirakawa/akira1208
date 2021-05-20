@@ -32,7 +32,15 @@
     -webkit-text-stroke: 4px #FFF;
     text-stroke: 4px #FFF;
 }
-
+.quiz_area_bg2{
+    display:none; 
+    position:fixed;
+    z-index:10000; 
+    top: 0;
+  left: 0;
+  /*余白が入らないように*/
+  margin: 0;
+}
 /* .trueまたは.falseのクラスが付与されたら表示するものとみなす */
 .quiz_area .quiz_area_icon.true, .quiz_area .quiz_area_icon.false{
     display: block;

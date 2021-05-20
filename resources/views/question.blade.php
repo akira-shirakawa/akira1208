@@ -96,6 +96,9 @@
             <ul></ul>
         </div>
         <div class="quiz_area_bg"></div>
+        <div class="quiz_area_bg2"><a href="https://px.a8.net/svt/ejp?a8mat=3HC4EF+78RVQQ+4QB4+61Z81" rel="nofollow">
+<img border="0" width="300" height="250" alt="" src="https://www25.a8.net/svt/bgt?aid=210517575438&wid=001&eno=01&mid=s00000022072001017000&mc=1"></a>
+<img border="0" width="1" height="1" src="https://www14.a8.net/0.gif?a8mat=3HC4EF+78RVQQ+4QB4+61Z81" alt=""></div>
         <div class="quiz_area_icon"></div>
     </div>
     <div class="quiz_result"></div>
@@ -159,6 +162,7 @@ var p = JSON.parse('<?php echo $php_json; ?>');
        
         //画面を暗くするボックスを表示（上から重ねて、結果表示中は選択肢のクリックやタップを封じる
         quizArea.find('.quiz_area_bg').show();
+        quizArea.find('.quiz_area_bg2').show();
         //選択した回答に色を付ける
         $(this).addClass('selected');
        my_select.push($(this).text());
@@ -198,6 +202,7 @@ var p = JSON.parse('<?php echo $php_json; ?>');
             quizArea.find('.quiz_ans_area ul li').removeClass('selected');
             quizArea.find('.quiz_area_icon').removeClass('true false');
             quizArea.find('.quiz_area_bg').hide();
+            quizArea.find('.quiz_area_bg2').hide();
           
             //問題のカウントを進める
             quiz_cnt++;
