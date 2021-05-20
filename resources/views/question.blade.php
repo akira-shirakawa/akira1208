@@ -273,12 +273,11 @@ var p = JSON.parse('<?php echo $php_json; ?>');
         quizArea.find('.quiz_set').hide();
         var text = quiz_fin_cnt + '問中' + quiz_success_cnt + '問正解！';
         if(quiz_fin_cnt === quiz_success_cnt){
-            text += '<br>全問正解おめでとう！';
-        }
+            text += '<br>全問正解おめでとう！'; 
+        } 
         text += '<br><input type="button"    value="もう一度挑戦する" class="button quiz_restart p-10">';
         text += '<br><a href="../1" class="button">一覧に戻る</a>';
-         text += '<div class="pre">ツイートして偏差値１０アップチェックシートをゲットしよう'; 
-        text += ' <br><a class="twi" href="https://twitter.com/intent/tweet?text=https://akira-learning.com">ツイートする<i class="fab fa-twitter-square"></i></a></div>'; 
+        text += ' <br><a class="twi" href="https://twitter.com/intent/tweet?text=https://akira-learning.com"><img src="https://yellowokapi67.sakura.ne.jp/image/kenshou.png"></a>'; 
        
         text += (show_result(corr,my_select,quiz_cash)); 
         corr = [];
