@@ -50,15 +50,19 @@
                   {{$message2}} 
                 </p>
                 @auth
-                @foreach ($message as $key=>$message)
+                @foreach ($message as $key=>$message) 
              <a href="show/{{$key}}" class="target">
                 <div class="pregress ">
-                    <div class="color" style="width:{{$message}}%"></div>
-                </div>
+                    <div class="color" style="width:{{$message[0]}}%"></div>
+                    <div class="miss_color" style="width:{{$message[1]}}%"></div>
+                </div> 
                 <div class="target2">
                     {{$key}} 
                 </div>
              </a>
+             @if ($message[1] != 0)
+             <a href="show_miss/{{$key}}" class="button">間違えたところだけ</a>
+             @endif 
             @endforeach
             @endauth
             @guest
@@ -98,9 +102,16 @@
        object-fit: cover;
        border-radius: 50%;
 }
+.miss_color{ 
+             height:10px;
+            width:50%;
+            background:red;
+            border-radius: 2px;   
+}
         .pregress{
+            display:flex;
             height:10px;
-            width:100%;
+            width:100%; 
             background:#eee;
             padding:10px 0 10px 0 ;
             

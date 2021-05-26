@@ -34,7 +34,7 @@ Route::post('/memo','PostController@store');
 |--------------------------------------------------------------------------
 */
 Route::group(['middleware' => 'auth:user'], function() {
-  
+    Route::get('/question/show_miss/{id}','QuestionController@show_miss');
     Route::post('/homework','HomeworkController@store');
     Route::post('/homework_edit','HomeworkController@edit');
     Route::get('/homework/{id}','ReplyController@show');
@@ -75,6 +75,7 @@ Route::post('make','ArticleController@store');
 Route::post('reply','ReplyController@store');
 Route::post('reply_edit','ReplyController@edit');
 Route::post('log','LogController@store');
+Route::post('log2','Log2Controller@store');
 Route::post('notification','NotificationController@store');
 Route::post('message','NotificationController@destroy');
 Route::post('article','ArticleController@destroy');

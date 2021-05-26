@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Log;
 use App\User;
 use Auth;
+use App\Log2;
 
 class QuestionController extends Controller
 {
@@ -90,7 +91,22 @@ class QuestionController extends Controller
        return back();
      }
         
-    
+    public function show_miss($id){
+       $message = Auth::user()->question2s()->where('title',$id)->get();
+       $count = count($message);
+      
+       $array=[];
+        foreach($message as $key){
+            $item = [];
+            $item['question']= $key->question; 
+            $item['id'] =$key->id;
+            $item['category'] = $key->category; 
+            $item['image']= $key->image; 
+            $item['answer'] = [$key->option1,$key->option2,$key->option3,$key->option4];
+            $array[]= $item;
+        }    
+         return view('question',['array'=>$array,'message'=>$message,'count'=>$count]); 
+    }
 
     /**
      * Display the specified resource.
@@ -99,33 +115,37 @@ class QuestionController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
+    {  
         $message = Question::where('title',$id)->get();
-       
-         
         $array=[];
         foreach($message as $key){
             $item = [];
             $item['question']= $key->question;
             $item['id'] =$key->id;
             $item['category'] = $key->category; 
+            $item['image']= $key->image; 
             $item['answer'] = [$key->option1,$key->option2,$key->option3,$key->option4];
             $array[]= $item;
         }
-   //   $array = (json_encode($array));
-      
+
 
           
-        return view('question',['array'=>$array,'message'=>$message]); 
+        return view('question',['array'=>$array,'message'=>$message,'count'=>10]); 
     }
     
     public function show_index($id){
         if(!empty(Auth::id())){
-        $record2 = User::find(Auth::id())->questions()->where('category',$id)->get();   
+        $record2 = User::find(Auth::id())->questions()->where('category',$id)->get(); 
+        $miss = User::find(Auth::id())->question2s()->where('category',$id)->get();
         $message = Question::where('category',$id)->get();
         $message = User::get_title($message);
         $record2 = User::get_title($record2);
-        $result = User::get_rate($message,$record2);
+        $miss = User::get_title($miss);
+      //  dd($miss); 
+        $result = User::get_rate($message,$record2); 
+        $miss_result = User::get_rate($message,$miss); 
+        $result = array_merge_recursive($result,$miss_result);
+        
         $message2 = Question::return_sub($id);
         return view('show_question',['message'=>$result,'message2'=>$message2]);  
         }

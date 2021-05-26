@@ -31,9 +31,7 @@
           <img class="is-rounded" src="{{Auth::user()->image ?? "https://bulma.io/images/placeholders/128x128.png"}}">
         </figure>
         </a>
-             <a class="navbar-item" href="../../homework/{{Auth::id()}}"> 
-              課題
-            </a> 
+            
                 <a class="button is-primary" href="{{ route('logout') }}"
  
                     onclick="event.preventDefault();
@@ -94,7 +92,7 @@
         <div class="quiz_question"> <button id="js-start" class="button">Start </button></div>
         <div class="quiz_ans_area">
             <ul></ul>
-        </div>
+        </div> 
         <div class="quiz_area_bg"></div>
         <div class="quiz_area_bg2"><a href="https://px.a8.net/svt/ejp?a8mat=3HC4EF+78RVQQ+4QB4+61Z81" rel="nofollow">
 <img border="0" width="300" height="250" alt="" src="https://www25.a8.net/svt/bgt?aid=210517575438&wid=001&eno=01&mid=s00000022072001017000&mc=1"></a>
@@ -102,16 +100,19 @@
         <div class="quiz_area_icon"></div>
     </div>
     <div class="quiz_result"></div>
+    <div class="quiz_result2"></div>
 </div>       
     </div>
     <div class="column"></div>
 </div>
 
 <?php
-   $php_json = json_encode( $array);	
+   $php_json = json_encode( $array);
+   $count = json_encode($count);
 ?>
 <script>
-var p = JSON.parse('<?php echo $php_json; ?>');    
+var p = JSON.parse('<?php echo $php_json; ?>'); 
+var count = JSON.parse('<?php echo $count; ?>'); 
 </script>
 <style>
     html{
@@ -137,7 +138,7 @@ var p = JSON.parse('<?php echo $php_json; ?>');
     var quizArea = $('.quiz_area'); //クイズを管理するDOMを指定
     var quiz_html = quizArea.html(); //もう一度　を押した時に元に戻すため初期HTMLを変数で保管
     var quiz_cnt = 10; //現在の問題数を管理
-    var quiz_fin_cnt = 10; //何問で終了か設定（クイズ数以下であること）
+    var quiz_fin_cnt = count; //何問で終了か設定（クイズ数以下であること）
     var quiz_success_cnt = 0; //問題の正解数
     let my_select = [];
     let corr =[];
@@ -159,12 +160,13 @@ var p = JSON.parse('<?php echo $php_json; ?>');
     quizArea.on('click', '.quiz_ans_area ul li', function(){
         console.log('hoge'); 
             quizArea.find('.quiz_area_icon').addClass('true');
-       
+        
         //画面を暗くするボックスを表示（上から重ねて、結果表示中は選択肢のクリックやタップを封じる
         quizArea.find('.quiz_area_bg').show();
         quizArea.find('.quiz_area_bg2').show();
         //選択した回答に色を付ける
-        $(this).addClass('selected');
+        $(this).addClass('selected'); 
+        $('.correct_target').addClass('is_suposed_to_colored'); 
        my_select.push($(this).text());
         if($(this).data('true')){
             //正解の処理 〇を表示
@@ -183,9 +185,6 @@ var p = JSON.parse('<?php echo $php_json; ?>');
                 // Ajaxリクエストが成功した場合
                 .done(function(data) {
                     console.log(data);
-                
-                
-                 
                 })
                 
                 .fail(function(data) {
@@ -196,9 +195,26 @@ var p = JSON.parse('<?php echo $php_json; ?>');
             const wrong = new Audio('https://akira32310901.s3.amazonaws.com/Quiz-Wrong_Buzzer02-1.mp3');
             wrong.play();
             quizArea.find('.quiz_area_icon').addClass('false');
+             $.ajax({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    url: "../../log2",
+                    type: 'POST',
+                    data:{'question_id':aryQuiz[quiz_cnt]['id']}
+                })
+                // Ajaxリクエストが成功した場合
+                .done(function(data) {
+                    console.log(data);
+                })
+                
+                .fail(function(data) {
+                    console.log('失敗'); 
+                });                 
         }
         setTimeout(function(){
             //表示を元に戻す
+            quizArea.find('.quiz_question').text(""); 
             quizArea.find('.quiz_ans_area ul li').removeClass('selected');
             quizArea.find('.quiz_area_icon').removeClass('true false');
             quizArea.find('.quiz_area_bg').hide();
@@ -224,6 +240,7 @@ var p = JSON.parse('<?php echo $php_json; ?>');
     //リセットを行う関数
     function quizReset(){
         quizArea.html(quiz_html); //表示を元に戻す
+         $('#js-start').hide();  
         quiz_cnt = 0;
         quiz_success_cnt = 0;
         aryQuiz = arrShuffle(aryQuiz); //毎回出題の順番をシャッフルしたい場合はここのコメントを消してね
@@ -233,9 +250,10 @@ var p = JSON.parse('<?php echo $php_json; ?>');
     //問題を表示する関数
     function quizShow(){
         //何問目かを表示
-        quizArea.find('.quiz_no').text((quiz_cnt + 1));
+        quizArea.find('.quiz_no').text((quiz_cnt + 1)); 
         //問題文を表示
-        quizArea.find('.quiz_question').text(aryQuiz[quiz_cnt]['question']);
+       quizArea.find('.quiz_question').append("<img src='"+aryQuiz[quiz_cnt]['image']+"'>"); 
+       quizArea.find('.quiz_question').append(aryQuiz[quiz_cnt]['question']);
     let u = new SpeechSynthesisUtterance(aryQuiz[quiz_cnt]['question']);
     var voices = speechSynthesis.getVoices();
    voices.forEach(function(v, i){
@@ -261,7 +279,7 @@ var p = JSON.parse('<?php echo $php_json; ?>');
             var fuga = '<li>' + value + '</li>';
             //正解の場合はdata属性を付与する
             if(success === value){
-                fuga = '<li data-true="1">' + value + '</li>';
+                fuga = '<li data-true="1" class="correct_target">' + value + '</li>';
             }
             quizArea.find('.quiz_ans_area ul').append(fuga);
         });
@@ -277,13 +295,14 @@ var p = JSON.parse('<?php echo $php_json; ?>');
         } 
         text += '<br><input type="button"    value="もう一度挑戦する" class="button quiz_restart p-10">';
         text += '<br><a href="../1" class="button">一覧に戻る</a>';
-        text += ' <br><a class="twi" href="https://twitter.com/intent/tweet?text=https://akira-learning.com"><img src="https://yellowokapi67.sakura.ne.jp/image/kenshou.png"></a>'; 
+        text2 = ' <br><a class="twi" href="https://twitter.com/intent/tweet?text=https://akira-learning.com"><img src="https://yellowokapi67.sakura.ne.jp/image/kenshou.png"></a>'; 
        
-        text += (show_result(corr,my_select,quiz_cash)); 
+        text2 += (show_result(corr,my_select,quiz_cash)); 
         corr = [];
         my_select =[];
         quiz_cash = [];
         quizArea.find('.quiz_result').html(text);
+        quizArea.find('.quiz_result2').html(text2); 
         quizArea.find('.quiz_result').show();
     }
     
@@ -318,7 +337,7 @@ var p = JSON.parse('<?php echo $php_json; ?>');
       let tmp_str ='';
       
       for(i=0;i<=count-1;i++){
-          let dudge = (array1[i] == array2[i]) ? '〇' : '✖';
+          let dudge = (array1[i] == array2[i]) ? '<span style="color:red">〇</span>' : '<span style="color:blue">✖</span>'; 
           let tmp='<tr><td>'+String(array3[i])+'</td><td>'+String(array1[i])+'</dt><td>'+String(array2[i])+'</td><td>'+dudge+'</td></tr>';
           tmp_str+=tmp;
       }

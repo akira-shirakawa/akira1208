@@ -33,7 +33,9 @@ class User extends Authenticatable
  public function questions(){
     return $this->belongsToMany('App\Question', 'logs');     
  } 
- 
+ public function question2s(){
+     return $this->belongsToMany('App\Question','log2s');
+ }
  public static function get_title ($value){
      $result = [];
      foreach($value as $key){

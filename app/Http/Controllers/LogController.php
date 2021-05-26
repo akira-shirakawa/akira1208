@@ -10,7 +10,7 @@ use App\User;
 use App\Reply;
 use App\Notification;
 use Storage;
-
+use App\Log2;
 
 
 class LogController extends Controller
@@ -102,19 +102,23 @@ class LogController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request) 
     { if(!empty(Auth::id())){
      if(empty(Log::where('user_id',Auth::id())->where('question_id',$request->question_id)->get()->first())){
          
-          $message=new Log;
-          $message->user_id=Auth::id();
+          $message=new Log; 
+          $message->user_id=Auth::id(); 
           $message->question_id=$request->question_id;
           $message->save();
+         
+         
+       
           $message2 = User::find(Auth::id());
-          $message2->point+=1;
-          $message2->save();
-          
-     }   
+          $message2->point+=1; 
+          $message2->save(); 
+            
+     }
+      Log2::where('user_id',Auth::id())->where('question_id',$request->question_id)->delete(); 
     }
       
     

@@ -475,6 +475,7 @@ class ComposerStaticInitf9ad002bcd427cda3dfd18a60e11e582
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Log' => __DIR__ . '/../..' . '/app/Log.php',
+        'App\\Log2' => __DIR__ . '/../..' . '/app/Log2.php',
         'App\\Notification' => __DIR__ . '/../..' . '/app/Notification.php',
         'App\\Post' => __DIR__ . '/../..' . '/app/Post.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
