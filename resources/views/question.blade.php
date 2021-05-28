@@ -154,6 +154,7 @@ var count = JSON.parse('<?php echo $count; ?>');
     let corr =[];
     let explanation =[];
     let quiz_cash =[];
+    let explanation_new =[];
 
     //クイズの配列を設定
     //answerの選択肢の数はいくつでもOK　ただし先頭を正解とすること(出題時に選択肢はシャッフルされる)
@@ -253,7 +254,8 @@ var count = JSON.parse('<?php echo $count; ?>');
         corr = [];
         explanation =[]; 
         my_select =[];
-        quiz_cash = [];     
+        quiz_cash = []; 
+        
         quizArea.html(quiz_html); //表示を元に戻す
          $('#js-start').hide();  
         quiz_cnt = 0;
@@ -303,6 +305,7 @@ var count = JSON.parse('<?php echo $count; ?>');
     
     //結果を表示する関数
     function quizResult(){
+        explanation_new = explanation;
         $('.modal2').addClass('is-active');
         quizArea.find('.quiz_set').hide();
         var text = quiz_fin_cnt + '問中' + quiz_success_cnt + '問正解！';
@@ -313,6 +316,7 @@ var count = JSON.parse('<?php echo $count; ?>');
         text += '<br><a href="../1" class="button">一覧に戻る</a>';
         text2 = ' <br><a class="twi" href="https://twitter.com/intent/tweet?text=https://akira-learning.com"><img src="https://yellowokapi67.sakura.ne.jp/image/kenshou.png"></a>'; 
        
+        console.log(explanation_new); 
         text2 += (show_result(corr,my_select,quiz_cash,explanation)); 
 
         quizArea.find('.quiz_result').html(text);
@@ -349,22 +353,23 @@ var count = JSON.parse('<?php echo $count; ?>');
       let correct_or_not =[];
       let count = corr.length;
       let tmp_str ='';
-      
+      let explanation_new2=[];
       for(i=0;i<=count-1;i++){
           if(array4[i] == null){
-          array4[i] = ''; 
+          explanation_new2[i] = ''; 
           }else{
-          array4[i] = `<button id="${i}" class="button is-primary is-rounded js-target22" >詳細</button>`; 
+          explanation_new2[i] = `<button id="${i}" class="button is-primary is-rounded js-target22" >詳細</button>`; 
           }
           let dudge = (array1[i] == array2[i]) ? '<span style="color:red">〇</span>' : '<span style="color:blue">✖</span>'; 
-          let tmp='<tr><td>'+String(array3[i])+'</td><td>'+String(array1[i])+'</dt><td>'+String(array4[i])+'</td><td>'+dudge+'</td></tr>';
+          let tmp='<tr><td>'+String(array3[i])+'</td><td>'+String(array1[i])+'</dt><td>'+String(explanation_new2[i])+'</td><td>'+dudge+'</td></tr>';
           tmp_str+=tmp; 
       }
       return '<table class="table"><tr><td>問題</td><td>正解</dt><td>詳細</td><td>正誤</td></tr>'+tmp_str+'</table>';
   }
    
 $(document).on("click", ".js-target22", function(){  
-    $('.modal1').addClass('is-active');  
+    $('.modal1').addClass('is-active');
+    
     $('.modal1 > .modal-content > .base').text(explanation[$(this).attr('id')]); 
 });
 });
