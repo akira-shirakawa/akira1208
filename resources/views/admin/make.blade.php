@@ -57,6 +57,7 @@
                     <option value="1">英語</option>
                     <option value="2">理科</option>
                     <option value="3">地理</option>
+                    <option value="10">解説</option>
                   </select>
                 </div>
                 <textarea id="inputform" class="input-area textarea" name="content" rows="30"   type="textarea" required>

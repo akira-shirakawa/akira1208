@@ -101,7 +101,8 @@ class QuestionController extends Controller
             $item['question']= $key->question; 
             $item['id'] =$key->id;
             $item['category'] = $key->category; 
-            $item['image']= $key->image; 
+            $item['image']= $key->image;
+            $item['explanation'] = $key->explanation;
             $item['answer'] = [$key->option1,$key->option2,$key->option3,$key->option4];
             $array[]= $item;
         }    
@@ -123,14 +124,15 @@ class QuestionController extends Controller
             $item['question']= $key->question;
             $item['id'] =$key->id;
             $item['category'] = $key->category; 
-            $item['image']= $key->image; 
+            $item['image']= $key->image;
+            $item['explanation'] = $key->explanation;
             $item['answer'] = [$key->option1,$key->option2,$key->option3,$key->option4];
             $array[]= $item;
         }
 
 
           
-        return view('question',['array'=>$array,'message'=>$message,'count'=>10]); 
+        return view('question',['array'=>$array,'message'=>$message,'count'=>10,]); 
     }
     
     public function show_index($id){

@@ -51,7 +51,7 @@
       </nav>      
 <div class="columns">
     @guest
-<div class="modal"> 
+<div class="modal modal2"> 
   <div class="modal-background"></div>
   <div class="modal-content">
 <div class="card">
@@ -101,7 +101,17 @@
     </div>
     <div class="quiz_result"></div>
     <div class="quiz_result2"></div>
-</div>       
+</div> 
+<div class="modal modal1">
+  <div class="modal-background"></div>
+  <div class="modal-content">
+    <!-- Any other Bulma elements you want -->
+    <div class="base" style="background:white">
+        
+    </div>
+  </div>
+  <button class="modal-close is-large" aria-label="close"></button>
+</div>
     </div>
     <div class="column"></div>
 </div>
@@ -142,6 +152,7 @@ var count = JSON.parse('<?php echo $count; ?>');
     var quiz_success_cnt = 0; //問題の正解数
     let my_select = [];
     let corr =[];
+    let explanation =[];
     let quiz_cash =[];
 
     //クイズの配列を設定
@@ -239,6 +250,10 @@ var count = JSON.parse('<?php echo $count; ?>');
     
     //リセットを行う関数
     function quizReset(){
+        corr = [];
+        explanation =[]; 
+        my_select =[];
+        quiz_cash = [];     
         quizArea.html(quiz_html); //表示を元に戻す
          $('#js-start').hide();  
         quiz_cnt = 0;
@@ -267,7 +282,8 @@ var count = JSON.parse('<?php echo $count; ?>');
    speechSynthesis.speak(u); 
    };
         //正解の回答を取得する
-        var success = aryQuiz[quiz_cnt]['answer'][0];
+        var success = aryQuiz[quiz_cnt]['answer'][0];  
+        explanation.push(aryQuiz[quiz_cnt]['explanation']);  
           corr.push(success); 
           quiz_cash.push(aryQuiz[quiz_cnt]['question']);
         //現在の選択肢表示を削除する
@@ -287,7 +303,7 @@ var count = JSON.parse('<?php echo $count; ?>');
     
     //結果を表示する関数
     function quizResult(){
-        $('.modal').addClass('is-active');
+        $('.modal2').addClass('is-active');
         quizArea.find('.quiz_set').hide();
         var text = quiz_fin_cnt + '問中' + quiz_success_cnt + '問正解！';
         if(quiz_fin_cnt === quiz_success_cnt){
@@ -297,10 +313,8 @@ var count = JSON.parse('<?php echo $count; ?>');
         text += '<br><a href="../1" class="button">一覧に戻る</a>';
         text2 = ' <br><a class="twi" href="https://twitter.com/intent/tweet?text=https://akira-learning.com"><img src="https://yellowokapi67.sakura.ne.jp/image/kenshou.png"></a>'; 
        
-        text2 += (show_result(corr,my_select,quiz_cash)); 
-        corr = [];
-        my_select =[];
-        quiz_cash = [];
+        text2 += (show_result(corr,my_select,quiz_cash,explanation)); 
+
         quizArea.find('.quiz_result').html(text);
         quizArea.find('.quiz_result2').html(text2); 
         quizArea.find('.quiz_result').show();
@@ -331,24 +345,41 @@ var count = JSON.parse('<?php echo $count; ?>');
    speechSynthesis.speak(u);
 
   }
-  function show_result(array1,array2,array3){
+  function show_result(array1,array2,array3,array4){
       let correct_or_not =[];
       let count = corr.length;
       let tmp_str ='';
       
       for(i=0;i<=count-1;i++){
+          if(array4[i] == null){
+          array4[i] = ''; 
+          }else{
+          array4[i] = `<button id="js-modal-targetw" class="${i} button is-primary is-rounded">詳細</button>`; 
+          }
           let dudge = (array1[i] == array2[i]) ? '<span style="color:red">〇</span>' : '<span style="color:blue">✖</span>'; 
-          let tmp='<tr><td>'+String(array3[i])+'</td><td>'+String(array1[i])+'</dt><td>'+String(array2[i])+'</td><td>'+dudge+'</td></tr>';
-          tmp_str+=tmp;
+          let tmp='<tr><td>'+String(array3[i])+'</td><td>'+String(array1[i])+'</dt><td>'+String(array4[i])+'</td><td>'+dudge+'</td></tr>';
+          tmp_str+=tmp; 
       }
-      return '<table class="table"><tr><td>問題</td><td>正解</dt><td>あなたの回答</td><td>正誤</td></tr>'+tmp_str+'</table>';
+      return '<table class="table"><tr><td>問題</td><td>正解</dt><td>詳細</td><td>正誤</td></tr>'+tmp_str+'</table>';
   }
-});      
+   
+$(document).on("click", "#js-modal-targetw", function(){  
+    $('.modal1').addClass('is-active'); 
+    $('.modal1 > .modal-content > .base').text(explanation[$(this).attr('class')]);
+});
+});
+ 
+
+
  </script>
   <style>
   body{
       font-family: '游ゴシック', YuGothic, 'メイリオ', Verdana, 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
-  }      
+  } 
+  .base{
+      background:white;
+      z-index:2000; 
+  }
   </style>
 </body>
 </html>

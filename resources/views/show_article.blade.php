@@ -53,6 +53,7 @@
       </nav>    
     <div class="columns">
        <div class="column">
+@if($message->subject != 10)           
 <article class="message is-dark">
   <div class="message-header">
     <p>Memo</p>
@@ -71,12 +72,13 @@
     
   </div>
 </article>         
-     
+@endif     
        </div>
         <div class="column is-half has-background-white">
  <div class="notification is-success hide js-target4">
 正常に保存されました
-</div>         
+</div> 
+@if($message->subject != 10) 
     <section class="hero is-medium mb-1" id="hero-target"
         style="background:url(https://i.gzn.jp/img/2014/03/06/children-play-math/00-top.png) center no-repeat;background-size: cover;">
 
@@ -88,7 +90,9 @@
                 Akira lerningVer1.0
             </p> 
         </div> 
-    </section>         {!! nl2br(($message->content)) !!}　
+    </section> 
+@endif    
+    {!! nl2br(($message->content)) !!}　
               <div class="homework">
                 @guest
                 <div class="wrapper is-vcentered">
