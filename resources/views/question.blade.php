@@ -354,7 +354,7 @@ var count = JSON.parse('<?php echo $count; ?>');
           if(array4[i] == null){
           array4[i] = ''; 
           }else{
-          array4[i] = `<button id="js-modal-targetw" class="${i} button is-primary is-rounded">詳細</button>`; 
+          array4[i] = `<button id="${i}" class="button is-primary is-rounded js-target22" >詳細</button>`; 
           }
           let dudge = (array1[i] == array2[i]) ? '<span style="color:red">〇</span>' : '<span style="color:blue">✖</span>'; 
           let tmp='<tr><td>'+String(array3[i])+'</td><td>'+String(array1[i])+'</dt><td>'+String(array4[i])+'</td><td>'+dudge+'</td></tr>';
@@ -363,9 +363,9 @@ var count = JSON.parse('<?php echo $count; ?>');
       return '<table class="table"><tr><td>問題</td><td>正解</dt><td>詳細</td><td>正誤</td></tr>'+tmp_str+'</table>';
   }
    
-$(document).on("click", "#js-modal-targetw", function(){  
-    $('.modal1').addClass('is-active'); 
-    $('.modal1 > .modal-content > .base').text(explanation[$(this).attr('class')]);
+$(document).on("click", ".js-target22", function(){  
+    $('.modal1').addClass('is-active');  
+    $('.modal1 > .modal-content > .base').text(explanation[$(this).attr('id')]); 
 });
 });
  
