@@ -279,11 +279,11 @@ var count = JSON.parse('<?php echo $count; ?>');
     });
     let judge = aryQuiz[quiz_cnt]['category']; 
   
-  
-    if(judge == 1){
+  　
+    if(judge == 1 || Math.floor(judge/10) == 1){
    speechSynthesis.speak(u); 
    };
-        //正解の回答を取得する
+        //正解の回答を取得する 
         var success = aryQuiz[quiz_cnt]['answer'][0];  
         explanation.push(aryQuiz[quiz_cnt]['explanation']);  
           corr.push(success); 

@@ -27,7 +27,8 @@ class Question extends Model
       return $uniqueArray;    
    } 
    public static function return_sub($id){
-      if($id == 1 ){
+      
+      if($id == 1 || intval($id/10) == 1){ 
          return '英語';
       }else{
          return '古文単語';

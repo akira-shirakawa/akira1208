@@ -47,10 +47,10 @@
         </div>　 
         <div class="column is-half">
             @if($message2 == "英語")
-                 <div class="autoplay"> 
-                    <div><img src="https://yellowokapi67.sakura.ne.jp/image/daigakunyuusi.png"></div>
+                 <div class="autoplay">  
+                    <div><a href="1"><img src="https://yellowokapi67.sakura.ne.jp/image/daigakunyuusi.png"></a></div>
                     <div><img src="https://yellowokapi67.sakura.ne.jp/image/nannkanneitango.png"></div> 
-                    <div><img src="https://yellowokapi67.sakura.ne.jp/image/eiken3.png"></div>
+                    <div><a href="11"><img src="https://yellowokapi67.sakura.ne.jp/image/eiken3.png"></a></div>
                     <div><img src="https://yellowokapi67.sakura.ne.jp/image/eiken2-.png"></div>
                     <div><img src="https://yellowokapi67.sakura.ne.jp/image/eiken2.png"></div>
                 </div>
