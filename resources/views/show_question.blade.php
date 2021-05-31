@@ -51,11 +51,11 @@
                     <div><a href="1"><img src="https://yellowokapi67.sakura.ne.jp/image/daigakunyuusi.png"></a></div>
                     <div><img src="https://yellowokapi67.sakura.ne.jp/image/nannkanneitango.png"></div> 
                     <div><a href="11"><img src="https://yellowokapi67.sakura.ne.jp/image/eiken3.png"></a></div>
-                    <div><img src="https://yellowokapi67.sakura.ne.jp/image/eiken2-.png"></div>
-                    <div><img src="https://yellowokapi67.sakura.ne.jp/image/eiken2.png"></div>
+                    <div><a href="12"><img src="https://yellowokapi67.sakura.ne.jp/image/eiken2-.png"></a></div>
+                    <div><a href="13"><img src="https://yellowokapi67.sakura.ne.jp/image/eiken2.png"></a></div>
                 </div>
             @endif    
-            <article class="panel is-link"> 
+            <article class="panel is-link">   
                 <p class="panel-heading">
                   {{$message2}} 
                 </p> 
