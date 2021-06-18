@@ -23,8 +23,21 @@ class LogController extends Controller
     public function index()
     {   $carbon = Carbon::parse('now');
         $day=$carbon->subDays(1)->timestamp; 
+        $day2 = $carbon->subDays(2)->timestamp;
+       
+        $day3 = $carbon->subDays(3)->timestamp; 
+        $day4 = $carbon->subDays(4)->timestamp;
+        $day5 = $carbon->subDays(5)->timestamp;
+        $day6 = $carbon->subDays(6)->timestamp;
+        $day7 = $carbon->subDays(7)->timestamp;
         $month = $carbon->subMonths(1)->timestamp;
        $day= date("Y-m-d H:i:s",$day);
+       $day2= date("Y-m-d H:i:s",$day2);
+       $day3= date("Y-m-d H:i:s",$day3);
+       $day4= date("Y-m-d H:i:s",$day4);
+       $day5= date("Y-m-d H:i:s",$day5); 
+       $day6= date("Y-m-d H:i:s",$day6);
+       $day7= date("Y-m-d H:i:s",$day7); 
        $month = date("Y-m-d H:i:s",$month); 
         $going_array=[];
         $notification = Notification::all();
@@ -78,7 +91,18 @@ class LogController extends Controller
         $mothly=Log::marge($month_record,$month_record2);
         $message = User::orderBy('point','dese')->limit(5)->get();
         $user = new LogController;
-       return view('home',['message'=>$message,'day'=>$dayly,'month'=>$going_array,'user'=>$user,'notification'=>$notification]);
+        $graph =[];
+        if(!empty(Auth::id())){
+        $graph[]= Log::where('user_id',Auth::id())->where('created_at','<',$day)->get()->count();
+        $graph[]= Log::where('user_id',Auth::id())->where('created_at','<',$day2)->get()->count();
+        $graph[]= Log::where('user_id',Auth::id())->where('created_at','<',$day3)->get()->count();
+        $graph[]= Log::where('user_id',Auth::id())->where('created_at','<',$day4)->get()->count();
+        $graph[]= Log::where('user_id',Auth::id())->where('created_at','<',$day5)->get()->count(); 
+        $graph[]= Log::where('user_id',Auth::id())->where('created_at','<',$day6)->get()->count();
+        $graph[]= Log::where('user_id',Auth::id())->where('created_at','<',$day7)->get()->count();
+        }
+       
+       return view('home',['message'=>$message,'day'=>$dayly,'month'=>$going_array,'user'=>$user,'notification'=>$notification,'graph'=>$graph]);
         
     }
     

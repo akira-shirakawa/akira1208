@@ -33,7 +33,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
     </head>
 
 <body>
@@ -86,6 +86,7 @@
                 alt="高速基礎マスター" width="100%" height="auto">
             @endguest
             @auth
+            <canvas id="ex_chart"></canvas>
             <article class="message is-link">
                 <div class="message-header">
                     <p>Notification</p>
@@ -342,6 +343,7 @@
         </div>
     </footer>
     <style>
+    #ex_chart {max-width:640px;max-height:480px;}
         body {
             font-family: '游ゴシック', YuGothic, 'メイリオ', Verdana, 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
         }
@@ -490,8 +492,53 @@
     $('.area ul').removeClass('show').eq(index).addClass('show');
  
   });
-  
+   
     </script>
+    <?php
+   $php_json = json_encode( $graph);
+  
+?> 
+<script> 
+var graph = JSON.parse('<?php echo $php_json; ?>'); 
+console.log(graph); 
+</script> 
+<script>
+var day = new Date();
+var day2 = new Date();
+var day3 = new Date();
+var day4 = new Date();
+var day5 = new Date();
+var day6 = new Date();
+var day7 = new Date();
+
+day.setDate(day.getDate() - 1);
+day2.setDate(day.getDate() - 2);
+day3.setDate(day.getDate() - 3); 
+day4.setDate(day.getDate() - 4); 
+day5.setDate(day.getDate() - 5);
+day6.setDate(day.getDate() - 6);
+day7.setDate(day.getDate() - 7); 
+ 
+var ctx = document.getElementById('ex_chart');  
+ 
+var data = {
+    labels: [day7.getDate(),day6.getDate(),day5.getDate(), day4.getDate(), day3.getDate(), day2.getDate(),day.getDate()+'日'],  
+    datasets: [{
+        label: '得点推移', 
+        data: [graph[6],graph[5],graph[4], graph[3], graph[2], graph[1], graph[0]],
+        borderColor: 'rgba(255, 100, 100, 1)'
+    }]
+};
+
+var options = {};
+
+var ex_chart = new Chart(ctx, {
+    type: 'line',
+    data: data,
+    options: options
+});
+</script>
+
     <style>
         html {
             text-align: center;
