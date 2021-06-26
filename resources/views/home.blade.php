@@ -133,38 +133,38 @@
                     生物基礎・化学基礎 Comming soon
                 </a>
             </article>
-            <article class="panel is-primary">
-                <p class="panel-heading">
-                    学習(動画) <i class="fas fa-book" aria-hidden="true"></i>
-                </p>
+            <!--<article class="panel is-primary">-->
+            <!--    <p class="panel-heading">-->
+            <!--        学習(動画) <i class="fas fa-book" aria-hidden="true"></i>-->
+            <!--    </p>-->
 
 
-                <a href="article/0" class="panel-block is-active">
-                    <span class="panel-icon">
-                        <i class="fas fa-calculator"></i>
-                    </span>
-                    数学
-                </a>
-                <a class="panel-block" href="article/1">
+            <!--    <a href="article/0" class="panel-block is-active">-->
+            <!--        <span class="panel-icon">-->
+            <!--            <i class="fas fa-calculator"></i>-->
+            <!--        </span>-->
+            <!--        数学-->
+            <!--    </a>-->
+            <!--    <a class="panel-block" href="article/1">-->
 
-                    <span class="panel-icon">
-                        <i class="fas fa-font"></i>
-                    </span>
-                    英語Commingsoon
-                </a>
-                <a class="panel-block" href="article/2">
-                    <span class="panel-icon">
-                        <i class="fas fa-flask"></i>
-                    </span>
-                    理科Commingsoon
-                </a>
-                <a class="panel-block">
-                    <span class="panel-icon">
-                        <i class="fas fa-globe-asia"></i>
-                    </span>
-                    地理Commingsoon
-                </a>
-            </article>
+            <!--        <span class="panel-icon">-->
+            <!--            <i class="fas fa-font"></i>-->
+            <!--        </span>-->
+            <!--        英語Commingsoon-->
+            <!--    </a>-->
+            <!--    <a class="panel-block" href="article/2">-->
+            <!--        <span class="panel-icon">-->
+            <!--            <i class="fas fa-flask"></i>-->
+            <!--        </span>-->
+            <!--        理科Commingsoon-->
+            <!--    </a>-->
+            <!--    <a class="panel-block">-->
+            <!--        <span class="panel-icon">-->
+            <!--            <i class="fas fa-globe-asia"></i>-->
+            <!--        </span>-->
+            <!--        地理Commingsoon-->
+            <!--    </a>-->
+            <!--</article>-->
             <div class="title is-4">
                 ランキング
             </div>
